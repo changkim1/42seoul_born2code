@@ -1,4 +1,3 @@
-#include <stdio.h>
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -23,9 +22,4 @@ int	ft_atoi(const char *str)
 		}
 	}
 	return (plma * num);
-}
-
-int main(void)
-{
-	printf("%d\n", ft_atoi("    -9-885"));
 }
