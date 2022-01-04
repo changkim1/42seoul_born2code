@@ -10,5 +10,6 @@ int ft_isprint(int c);
 int ft_strlen(char *str);
 void	*ft_memset(void *dest, int value, size_t count);
 
+#include <string.h>
 
 #endif
