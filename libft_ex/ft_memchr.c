@@ -1,4 +1,4 @@
-#include <string.h>
+#include "libft.h"
 
 void	*memchr(const void *buf, int c, size_t count)
 {

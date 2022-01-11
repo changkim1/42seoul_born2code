@@ -1,14 +1,15 @@
 #include "libft.h"
 
-char	*strnstr(const char *big, const char *little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	i;
 	size_t	j;
 
 	i = -1;
+	j = 0;
 	if (little[j] == 0)
 		return ((char *)&big[i]);
-	while (big[++i] && i + (size_t)ft_strlen(little) <= len)
+	while (big[++i] && i + (size_t)ft_strlen((char *)little) <= len)
 	{
 		j = 0;
 		while (big[i + j] == little[j] && i + j < len)

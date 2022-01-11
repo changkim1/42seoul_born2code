@@ -1,4 +1,4 @@
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memset(void *dest, int value, size_t count)
 {

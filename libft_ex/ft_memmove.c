@@ -1,4 +1,4 @@
-#include <string.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t num)
 {
@@ -13,13 +13,13 @@ void	*ft_memmove(void *dest, const void *src, size_t num)
 		return (0);
 	if (s_dest > c_src)
 	{
-		i = n + 1;
+		i = num + 1;
 		while (--i > 0)
 			s_dest[i] = c_src[i];
 	}
 	else
 	{
-		while (++i < n)
+		while (++i < num)
 			s_dest[i] = c_src[i];
 	}
 	return (dest);

@@ -9,7 +9,7 @@ int	memcmp(const void *buf1, const void *buf2, size_t count)
 	i = 0;
 	cp1 = (unsigned char *)buf1;
 	cp2 = (unsigned char *)buf2;
-	while (cp1[i] && cp1[i] == cp2[i])
+	while (cp1[i] == cp2[i] && i < count)
 		i++;
 	if (cp1[i] > cp2[i])
 		return (1);
