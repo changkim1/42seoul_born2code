@@ -1,5 +1,51 @@
 #include "libft.h"
 
+static size_t	index_cnt(char const *s, char c)
+{
+	size_t	i;
+	size_t	cnt;
+
+	i = 0;
+	cnt = 0;
+	while (s[i])
+	{
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == 0))
+			cnt++;
+	}
+	return (cnt);
+}
+
+static char	**free_all(char **str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	return (NULL);
+}
+
+static char	*strdup_len(const char *s, size_t len)
+{
+	size_t	i;
+	char	*str;
+
+	i = 0;
+	if (!(str = (char *)ft_calloc(len + 1, sizeof(char))))
+		return(0);
+	while (i < len)
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = 0;
+	return (str);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	i;
@@ -8,37 +54,38 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 
 	i = 0;
-	if (str = (char **)malloc(sizeof(char *) * (index_num(s, c) + 1)))
-		return (0);
+	j = 0;
 	index = 0;
+	if (!(str = (char **)ft_calloc(index_cnt(s, c), sizeof(char *))))
+		return (0);
 	while (s[i])
 	{
 		if (s[i] != c)
 		{
-			j = i;
-			while (s[j] != c)
+			while (s[i + j] != c && s[i + j])
 				j++;
-			str[index] = ft_substr(s, i, j - i);
+			if (!(str[index] = strdup_len(s, j - i)))
+				return (free_all(str));
+			i = j - 1;
 			index++;
-			i = j;
 		}
 		i++;
 	}
-	str[index] = 0;
 	return (str);
 }
 
-int	index_num(char const *s, char c)
+int main(void)
 {
-	int	i;
-	int	num;
+	int i;
+	char c;
+	char **str;
 
 	i = 0;
-	num = 0;
-	while (s[i])
+	c = 'a';
+	str = ft_split("a123a456a789a0", c);
+	while (str[i])
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == 0))
-			num++;	
+		printf("%s ", str[i]);
+		i++;
 	}
-	return (num);
 }
