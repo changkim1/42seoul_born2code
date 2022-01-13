@@ -11,6 +11,7 @@ static size_t	index_cnt(char const *s, char c)
 	{
 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == 0))
 			cnt++;
+		i++;
 	}
 	return (cnt);
 }
@@ -35,7 +36,7 @@ static char	*strdup_len(const char *s, size_t len)
 	char	*str;
 
 	i = 0;
-	if (!(str = (char *)ft_calloc(len + 1, sizeof(char))))
+	if (!(str = (char *)malloc(sizeof(char) * len)))
 		return(0);
 	while (i < len)
 	{
@@ -56,7 +57,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	index = 0;
-	if (!(str = (char **)ft_calloc(index_cnt(s, c), sizeof(char *))))
+	if (!(str = (char **)malloc(sizeof(char *) * index_cnt(s, c))))
 		return (0);
 	while (s[i])
 	{
@@ -64,13 +65,15 @@ char	**ft_split(char const *s, char c)
 		{
 			while (s[i + j] != c && s[i + j])
 				j++;
-			if (!(str[index] = strdup_len(s, j - i)))
+			if (!(str[index] = strdup_len(&s[i], j)))
 				return (free_all(str));
-			i = j - 1;
+			i = i + j - 1;
 			index++;
+			j = 0;
 		}
 		i++;
 	}
+	str[index] = 0;
 	return (str);
 }
 
@@ -81,8 +84,8 @@ int main(void)
 	char **str;
 
 	i = 0;
-	c = 'a';
-	str = ft_split("a123a456a789a0", c);
+	c = 'd';
+	str = ft_split("asdfasdf", c);
 	while (str[i])
 	{
 		printf("%s ", str[i]);
