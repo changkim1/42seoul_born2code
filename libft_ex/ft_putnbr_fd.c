@@ -59,3 +59,8 @@ void	ft_putnbr_fd(int n, int fd)
 	while (str[++i])
 		write(fd, &str[i], 1); 
 }
+
+int main(void)
+{
+	ft_putnbr_fd(0, 1);
+}
