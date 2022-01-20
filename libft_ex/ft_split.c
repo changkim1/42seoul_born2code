@@ -54,12 +54,12 @@ char	**ft_split(char const *s, char c)
 	size_t	index;
 	char	**str;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	index = 0;
 	if (!(str = (char **)malloc(sizeof(char *) * index_cnt(s, c))))
 		return (0);
-	while (s[i])
+	while (s[++i])
 	{
 		if (s[i] != c)
 		{
@@ -71,7 +71,6 @@ char	**ft_split(char const *s, char c)
 			index++;
 			j = 0;
 		}
-		i++;
 	}
 	str[index] = 0;
 	return (str);
@@ -85,10 +84,10 @@ int main(void)
 
 	i = 0;
 	c = 'd';
-	str = ft_split("asdfasdf", c);
+	str = ft_split("성d공d!!!!!!!!d!!!!!!!!!!돼!!!!!따!!!!!!!!!!d!", c);
 	while (str[i])
 	{
-		printf("%s ", str[i]);
+		printf("%s", str[i]);
 		i++;
 	}
 }
