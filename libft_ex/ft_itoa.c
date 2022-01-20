@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "libft.h"
 
-int	how_many_ten(int n) // n != 0
+int	how_many_ten(int n)
 {
 	int	num;
 
@@ -21,14 +21,15 @@ int	how_many_ten(int n) // n != 0
 
 char	*ft_itoa(int n)
 {
-	int	i;
-	int	cp_n;
+	 int	i;
+	 int	cp_n;
 	char	*str;
 
 	i = 0;
 	if (n == 0)
 		return (0);
-	if (!(str = (char *)malloc(sizeof(char) * (how_many_ten(n) + 1))))
+	str = (char *)malloc(sizeof(char) * (how_many_ten(n) + 1));
+	if (!str)
 		return (0);
 	i = how_many_ten(n);
 	cp_n = n;

@@ -1,8 +1,8 @@
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	num;
-	int plma;
+	int	plma;
 
 	i = -1;
 	num = 0;
@@ -10,14 +10,14 @@ int		ft_atoi(const char *str)
 	while (str[++i])
 	{
 		if ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-			continue;
+			continue ;
 		if (str[i] == '-')
 			plma *= -1;
 		if (str[i] >= '0' && str[i] <= '9')
 		{
 			num = num + (str[i] - 48);
 			if (str[i + 1] < '0' || str[i + 1] > '9')
-				break;
+				break ;
 			num *= 10;
 		}
 	}

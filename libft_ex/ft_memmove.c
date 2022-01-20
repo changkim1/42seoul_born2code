@@ -7,7 +7,7 @@ void	*ft_memmove(void *dest, const void *src, size_t num)
 	size_t	i;
 
 	c_dest = dest;
-	c_src = (char *)src; 
+	c_src = (char *)src;
 	i = -1;
 	if (dest == 0)
 		return (0);

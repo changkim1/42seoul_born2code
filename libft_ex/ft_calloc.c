@@ -3,7 +3,7 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	unsigned char	*str;
-	size_t	i;
+	       size_t	i;
 
 	i = 0;
 	str = (unsigned char *)malloc(count * size);
