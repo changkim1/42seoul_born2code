@@ -33,8 +33,8 @@ void	zero_and_minus(int n, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	int	i;
-	int	c_n;
+	 int	i;
+	 int	c_n;
 	char	str[20];
 
 	c_n = n;
@@ -57,10 +57,5 @@ void	ft_putnbr_fd(int n, int fd)
 	str[how_many_ten(n)] = 0;
 	i = -1;
 	while (str[++i])
-		write(fd, &str[i], 1); 
-}
-
-int main(void)
-{
-	ft_putnbr_fd(0, 1);
+		write(fd, &str[i], 1);
 }
