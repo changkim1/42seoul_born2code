@@ -1,11 +1,12 @@
 #include "libft.h"
+#include <stdio.h>
 
-int	how_many_tens(int n)
+int	how_many_tens(long long int n)
 {
 	int	num;
 
 	num = 0;
-	if (n < 0)
+	if (n <= 0)
 	{
 		n *= -1;
 		num++;
@@ -15,34 +16,29 @@ int	how_many_tens(int n)
 		n /= 10;
 		num++;
 	}
-	return (num - 1);
+	return (num);
 }
 
 char	*ft_itoa(int n)
 {
-	 int	i;
-	 int	cp_n;
-	char	*str;
+	          int	i;
+	long long int	cp_n;
+	         char	*str;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	str = (char *)malloc(sizeof(char) * (how_many_tens(n) + 1));
+	cp_n = (long long int)n;
+	i = how_many_tens(cp_n);
+	str = (char *)malloc(sizeof(char) * i + 1);
 	if (!str)
 		return (0);
-	i = how_many_tens(n);
-	cp_n = n;
+	str[i] = 0;
+	if (cp_n < 0)
+		cp_n *= -1;
+	while (--i >= 0)
+	{
+		str[i] = cp_n % 10 + '0';
+		cp_n /= 10;
+	}
 	if (n < 0)
-	{
 		str[0] = '-';
-		n *= -1;
-	}
-	while (n > 0)
-	{
-		str[i] = n % 10 + '0';
-		n /= 10;
-		i--;
-	}
-	str[how_many_tens(cp_n) + 1] = 0;
 	return (str);
 }

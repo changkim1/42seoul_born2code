@@ -1,25 +1,35 @@
+#include <limits.h>
+
+int	pass_blank(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (((str[i] >= 9 && str[i] <= 13) || str[i] == 32) && str[i])
+		i++;
+	return (i);
+}
+
 int	ft_atoi(const char *str)
 {
 	int	i;
-	int	num;
+	long long	num;
 	int	plma;
 
-	i = -1;
+	i = pass_blank(str);
 	num = 0;
 	plma = 1;
-	while (str[++i])
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-			continue ;
 		if (str[i] == '-')
 			plma *= -1;
-		if (str[i] >= '0' && str[i] <= '9')
-		{
-			num = num + (str[i] - 48);
-			if (str[i + 1] < '0' || str[i + 1] > '9')
-				break ;
-			num *= 10;
-		}
+		i++;
 	}
-	return (plma * num);
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	{
+		num += (str[i] - '0');
+		if (str[++i] >= '0' && str[i] <= '9')
+			num *= 10;
+	}
+	return ((int)num * plma);
 }
