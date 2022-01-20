@@ -1,10 +1,9 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
+# include <string.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *dest, size_t count);
@@ -16,7 +15,7 @@ int		ft_isdigit(int i);
 int 	ft_isprint(int c);
 
 void	*ft_memchr(const void *buf, int c, size_t count);
-int		ft_memcmp(const void *buf1, const void *buf2, size_t count);
+ int	ft_memcmp(const void *buf1, const void *buf2, size_t count);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t num);
 void	*ft_memset(void *dest, int value, size_t count);
@@ -48,7 +47,5 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
-
-
 
 #endif
