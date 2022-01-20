@@ -38,7 +38,7 @@ static char	*strdup_len(const char *s, size_t len)
 	i = 0;
 	str = (char *)malloc(sizeof(char) * len);
 	if (!str)
-		return(0);
+		return (0);
 	while (i < len)
 	{
 		str[i] = s[i];
@@ -64,9 +64,8 @@ char	**ft_split(char const *s, char c)
 	{
 		if (s[i] != c)
 		{
-			j = 0;
-			while (s[i + j] != c && s[i + j])
-				j++;
+			j = -1;
+			while (s[i + ++j] != c && s[i + j])
 			str[index] = strdup_len(&s[i], j);
 			if (!str)
 				return (free_all(str));
