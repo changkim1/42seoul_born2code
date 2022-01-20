@@ -56,7 +56,7 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 
 	i = -1;
-	index = 0;
+	index = -1;
 	str = (char **)malloc(sizeof(char *) * index_cnt(s, c));
 	if (!str)
 		return (0);
@@ -64,13 +64,13 @@ char	**ft_split(char const *s, char c)
 	{
 		if (s[i] != c)
 		{
-			j = -1;
-			while (s[i + ++j] != c && s[i + j])
-			str[index] = strdup_len(&s[i], j);
+			j = 0;
+			while (s[i + j] != c && s[i + j])
+				j++;
+			str[++index] = strdup_len(&s[i], j);
 			if (!str)
 				return (free_all(str));
 			i = i + j - 1;
-			index++;
 		}
 	}
 	str[index] = 0;
