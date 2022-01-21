@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/21 02:53:10 by changkim          #+#    #+#             */
+/*   Updated: 2022/01/21 15:57:14 by changkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-#include <stdio.h>
 
 int	how_many_tens(long long int n)
 {
@@ -21,9 +32,9 @@ int	how_many_tens(long long int n)
 
 char	*ft_itoa(int n)
 {
-	          int	i;
+	int				i;
 	long long int	cp_n;
-	         char	*str;
+	char			*str;
 
 	cp_n = (long long int)n;
 	i = how_many_tens(cp_n);

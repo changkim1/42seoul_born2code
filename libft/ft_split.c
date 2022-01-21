@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/21 02:53:21 by changkim          #+#    #+#             */
+/*   Updated: 2022/01/21 16:35:57 by changkim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static size_t	index_cnt(char const *s, char c)
+size_t	index_cnt(char const *s, char c)
 {
 	size_t	i;
 	size_t	cnt;
 
 	i = 0;
-	cnt = 0;
+	cnt = 1;
 	while (s[i])
 	{
 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == 0))
@@ -16,7 +28,7 @@ static size_t	index_cnt(char const *s, char c)
 	return (cnt);
 }
 
-static char	**free_all(char **str)
+char	**free_all(char **str)
 {
 	size_t	i;
 
@@ -30,7 +42,7 @@ static char	**free_all(char **str)
 	return (NULL);
 }
 
-static char	*strdup_len(const char *s, size_t len)
+char	*strdup_len(const char *s, size_t len)
 {
 	size_t	i;
 	char	*str;
@@ -73,6 +85,6 @@ char	**ft_split(char const *s, char c)
 			i = i + j - 1;
 		}
 	}
-	str[index] = 0;
+	str[++index] = 0;
 	return (str);
 }
