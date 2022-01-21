@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 02:53:13 by changkim          #+#    #+#             */
-/*   Updated: 2022/01/21 16:08:12 by changkim         ###   ########.fr       */
+/*   Updated: 2022/01/21 22:37:20 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,5 @@ int	ft_memcmp(const void *buf1, const void *buf2, size_t count)
 	cp2 = (unsigned char *)buf2;
 	while (cp1[i] == cp2[i] && i < count - 1)
 		i++;
-	if (cp1[i] > cp2[i])
-		return (1);
-	else if (cp1[i] < cp2[i])
-		return (-1);
-	else
-		return (0);
+	return (cp1[i] - cp2[i]);
 }
