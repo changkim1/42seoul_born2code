@@ -64,9 +64,6 @@ all : $(NAME)
 %.o : %.c
 		$(CC) $(CFLAG) -c $<
 
-so :
-	@gcc -fPIC -Wall -Wextra -Werror $(SRCS) -shared -o libft.so
-
 $(NAME) : $(OBJS)
 		$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
@@ -74,7 +71,7 @@ bonus : $(OBJS_B)
 		$(AR) $(ARFLAGS) $(NAME) $(OBJS_B)
 
 clean :
-		$(RM) $(OBJS)
+		$(RM) $(OBJS) $(OBJS_B)
 
 fclean : clean
 		$(RM) $(NAME)
