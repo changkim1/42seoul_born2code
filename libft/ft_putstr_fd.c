@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 02:53:20 by changkim          #+#    #+#             */
-/*   Updated: 2022/01/21 02:53:21 by changkim         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:49:11 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	if (fd < 0 || !s)
+	if (!s)
 		return ;
 	while (s[i])
 	{

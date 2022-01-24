@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 02:53:18 by changkim          #+#    #+#             */
-/*   Updated: 2022/01/21 02:53:19 by changkim         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:48:59 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_putendl_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	if (!s || fd < 0)
+	if (!s)
 		return ;
 	while (s[i])
 	{

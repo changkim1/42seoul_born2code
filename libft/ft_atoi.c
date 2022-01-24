@@ -6,11 +6,9 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 02:52:52 by changkim          #+#    #+#             */
-/*   Updated: 2022/01/21 15:56:23 by changkim         ###   ########.fr       */
+/*   Updated: 2022/01/24 16:17:58 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <limits.h>
 
 int	pass_blank(const char *str)
 {

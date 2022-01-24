@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 02:53:21 by changkim          #+#    #+#             */
-/*   Updated: 2022/01/21 16:35:57 by changkim         ###   ########.fr       */
+/*   Updated: 2022/01/24 15:24:41 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char	**ft_split(char const *s, char c)
 
 	i = -1;
 	index = -1;
-	str = (char **)malloc(sizeof(char *) * index_cnt(s, c));
+	str = (char **)ft_calloc(index_cnt(s, c), sizeof(char *));
 	if (!str)
 		return (0);
 	while (s[++i])

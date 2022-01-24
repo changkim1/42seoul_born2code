@@ -6,7 +6,7 @@ CFLAG		= -Wall -Wextra -Werror
 RM			= rm -rf
 
 AR			= ar
-ARFLAGS		= crs
+ARFLAGS		= curs
 
 INCLUDES	= ./libft.h
 
@@ -55,20 +55,29 @@ SRCS_B		= ft_lstnew.c \
 			  ft_lstiter.c \
 			  ft_lstmap.c \
 
+
 OBJS		= $(SRCS:.c=.o)
 
 OBJS_B		= $(SRCS_B:.c=.o)
+
+ifdef WITH_BONUS
+	OBJS_FILES = $(OBJS_B)
+
+else
+	OBJS_FILES = $(OBJS)
+
+endif
 
 all : $(NAME)
 
 %.o : %.c
 		$(CC) $(CFLAG) -c $<
 
-$(NAME) : $(OBJS)
-		$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+$(NAME) : $(OBJS_FILES)
+		$(AR) $(ARFLAGS) $(NAME) $(OBJS_FILES)
 
-bonus : $(OBJS_B)
-		$(AR) $(ARFLAGS) $(NAME) $(OBJS_B)
+bonus : 
+		make WITH_BONUS=1 all
 
 clean :
 		$(RM) $(OBJS) $(OBJS_B)

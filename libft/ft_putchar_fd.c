@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 02:53:17 by changkim          #+#    #+#             */
-/*   Updated: 2022/01/21 02:53:18 by changkim         ###   ########.fr       */
+/*   Updated: 2022/01/24 17:48:54 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	if (fd < 0)
-		return ;
 	write (fd, &c, 1);
 }
