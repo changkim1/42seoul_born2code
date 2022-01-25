@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 02:52:52 by changkim          #+#    #+#             */
-/*   Updated: 2022/01/24 16:17:58 by changkim         ###   ########.fr       */
+/*   Updated: 2022/01/25 15:45:51 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,15 @@ int	pass_blank(const char *str)
 	while (((str[i] >= 9 && str[i] <= 13) || str[i] == 32) && str[i])
 		i++;
 	return (i);
+}
+
+int	over_under_int(long long num, int plma)
+{
+	if (num * plma > 2147483647)
+		return (-1);
+	else if (num * plma < -2147483648)
+		return (0);
+	return (1);
 }
 
 int	ft_atoi(const char *str)
@@ -37,6 +46,8 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] && str[i] >= '0' && str[i] <= '9')
 	{
+		if (num * plma > 2147483647 || num * plma < -2147483648)
+			return (over_under_int(num, plma));
 		num += (str[i] - '0');
 		if (str[++i] >= '0' && str[i] <= '9')
 			num *= 10;
