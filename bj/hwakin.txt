@@ -1,0 +1,11 @@
+while (i < N)
+	{
+		printf("word[%d] = %s\n", i, word[i]);
+		i++;
+	}
+
+while (i < N)
+{
+	printf("word[%d] = %d\n", i, word[i]);
+	i++;
+}
