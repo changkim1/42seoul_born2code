@@ -1,59 +1,33 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 18:03:07 by changkim          #+#    #+#             */
-/*   Updated: 2022/02/22 17:23:52 by changkim         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *str)
 {
-	size_t	i;
+	size_t	c;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(const char *str)
-{
-	char	*cp_str;
-	size_t	s_len;
-	size_t	i;
-
-	i = 0;
-	s_len = ft_strlen((char *)str);
-	cp_str = (char *)malloc(sizeof(char) * (s_len + 1));
-	if (!cp_str)
+	c = 0;
+	if (!str)
 		return (0);
-	while (str[i])
-	{
-		cp_str[i] = str[i];
-		i++;
-	}
-	cp_str[i] = 0;
-	return (cp_str);
+	while (str[c] != '\0')
+		c++;
+	return (c);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strchr(char *str, char c)
 {
 	int	i;
 
 	i = 0;
-	while (src[i])
+	if (!str)
+		return (0);
+	if (c == '\0')
+		return ((char *)&str[ft_strlen(str)]);
+	while (str[i] != '\0')
 	{
-		dest[i] = src[i];
+		if (str[i] == c)
+			return ((char *)&str[i]);
 		i++;
 	}
-	dest[i] = 0;
-	return (dest);
+	return (0);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -62,8 +36,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	size_t	j;
 	char	*str;
 
-	i = -1;
-	j = -1;
 	if (!s1)
 	{
 		s1 = (char *)malloc(1 * sizeof(char));
@@ -71,14 +43,17 @@ char	*ft_strjoin(char *s1, char *s2)
 	}
 	if (!s1 || !s2)
 		return (NULL);
-	str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * (sizeof(char)));
-	if (!str)
-		return (0);
-	while (s1[++i])
-		str[i] = s1[i];
-	while (s2[++j])
-		str[i + j] = s2[j];
-	str[i + j] = 0;
+	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	i = -1;
+	j = 0;
+	if (s1)
+		while (s1[++i] != '\0')
+			str[i] = s1[i];
+	while (s2[j] != '\0')
+		str[i++] = s2[j++];
+	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	free(s1);
-	return (str);
+	return str;
 }
