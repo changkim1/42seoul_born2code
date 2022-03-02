@@ -18,6 +18,7 @@ int main() {
     }
     while ((line = get_next_line(fd)))// 2
     {
+		printf("check\n");
     	printf("Gnl %d line : %s\n", i++, line);
         free(line);		// 6
 		usleep(500000);
