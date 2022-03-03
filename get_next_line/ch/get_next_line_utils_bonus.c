@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:47:11 by changkim          #+#    #+#             */
-/*   Updated: 2022/03/02 20:58:46 by changkim         ###   ########.fr       */
+/*   Updated: 2022/03/03 17:45:52 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ int	ft_strchr(char *str, char c)
 	while (str[i])
 	{
 		if (c == str[i])
-			return (0);
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 char	*ft_strjoin(char *backup, char *str)
