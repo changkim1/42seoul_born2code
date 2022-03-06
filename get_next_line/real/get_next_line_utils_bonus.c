@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:47:11 by changkim          #+#    #+#             */
-/*   Updated: 2022/03/06 17:31:35 by changkim         ###   ########.fr       */
+/*   Updated: 2022/03/06 22:03:53 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	ft_strlen(char *str)
 {
@@ -47,7 +47,7 @@ char	*ft_strjoin(char *backup, char *str)
 	char	*tmp;
 	int		i;
 	int		j;
-	
+
 	i = -1;
 	if (!backup)
 	{
@@ -64,5 +64,5 @@ char	*ft_strjoin(char *backup, char *str)
 		tmp[i + j] = str[j];
 	tmp[i + j] = 0;
 	free(backup);
-	return(tmp);
+	return (tmp);
 }

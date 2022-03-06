@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:41:40 by changkim          #+#    #+#             */
-/*   Updated: 2022/03/06 17:31:44 by changkim         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:56:31 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 
 # define OPEN_MAX 256
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 int		ft_strchr(char *str, char c);
 int		ft_strlen(char *str);

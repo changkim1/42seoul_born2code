@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:47:11 by changkim          #+#    #+#             */
-/*   Updated: 2022/03/06 17:31:35 by changkim         ###   ########.fr       */
+/*   Updated: 2022/03/03 18:59:03 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_strjoin(char *backup, char *str)
 	char	*tmp;
 	int		i;
 	int		j;
-	
+
 	i = -1;
 	if (!backup)
 	{
@@ -64,5 +64,5 @@ char	*ft_strjoin(char *backup, char *str)
 		tmp[i + j] = str[j];
 	tmp[i + j] = 0;
 	free(backup);
-	return(tmp);
+	return (tmp);
 }
