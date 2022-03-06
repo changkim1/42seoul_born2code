@@ -5,12 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 19:47:11 by changkim          #+#    #+#             */
-/*   Updated: 2022/03/06 15:17:11 by changkim         ###   ########.fr       */
+/*   Created: 2022/03/06 14:41:35 by changkim          #+#    #+#             */
+/*   Updated: 2022/03/06 15:26:32 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+int	ft_strchr(char *str, char c)
+{
+	int	i;
+
+	i = 0;
+	if (c == '\0')
+		return (1);
+	while (str[i])
+	{
+		if (str[i] == c)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 int	ft_strlen(char *str)
 {
@@ -18,51 +34,39 @@ int	ft_strlen(char *str)
 
 	i = 0;
 	while (str[i])
-	{
 		i++;
-	}
 	return (i);
-}
-
-int	ft_strchr(char *str, char c)
-{
-	int	i;
-
-	i = 0;
-	if (!str)
-		return (0);
-	if (c == '\0')
-		return (1);
-	while (str[i])
-	{
-		if (c == str[i])
-			return (1);
-		i++;
-	}
-	return (0);
 }
 
 char	*ft_strjoin(char *backup, char *str)
 {
+	int		i;
+	int		j;
 	char	*tmp;
-	int	i;
-	int	j;
-	
-	i = -1;
+
+	i = 0;
+	j = 0;
 	if (!backup)
 	{
-		backup = (char *)malloc(sizeof(char) * 1);
+		backup = (char *)malloc(1);
 		backup[0] = 0;
 	}
-	if (!backup || !str)
+	if (!str)
 		return (NULL);
-	tmp = (char *)malloc(1 * (ft_strlen(str) + ft_strlen(backup) + 1));
-	while (backup[++i])
+	tmp = (char *)malloc(ft_strlen(backup) + ft_strlen(str) + 1);
+	if (!tmp)
+		return (NULL);
+	while (backup[i])
+	{
 		tmp[i] = backup[i];
-	j = -1;
-	while (str[++j])
+		i++;
+	}
+	while (str[j])
+	{
 		tmp[i + j] = str[j];
+		j++;
+	}
 	tmp[i + j] = 0;
 	free(backup);
-	return(tmp);
+	return (tmp);
 }
