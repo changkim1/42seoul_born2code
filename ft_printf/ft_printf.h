@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 22:29:43 by changkim          #+#    #+#             */
-/*   Updated: 2022/05/02 22:46:03 by changkim         ###   ########.fr       */
+/*   Updated: 2022/05/02 22:52:41 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,3 +34,5 @@ void	ft_putnbr(int n, char *str, int count);
 void	ft_putnbr_u(unsigned int n, char *str, int count);
 void	make_hex(char *str, char checker);
 void	ft_puthex(unsigned int n, char *str, int count, char *hex);
+
+#endif
