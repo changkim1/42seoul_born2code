@@ -1,4 +1,4 @@
-NAME		= ft_printf.a
+NAME		= libftprintf.a
 
 CC			= gcc
 CFLAG		= -Wall -Wextra -Werror
@@ -6,7 +6,7 @@ CFLAG		= -Wall -Wextra -Werror
 RM			= rm -rf
 
 AR			= ar
-ARFLAGS		= curs
+ARFLAGS		= crs
 
 INCLUDES	= ./ft_printf.h
 
@@ -27,6 +27,8 @@ all : $(NAME)
 		$(CC) $(CFLAG) -c $<
 
 $(NAME) : $(OBJS_FILES)
+		$(MAKE) bonus -C ./libft
+		cp libft/libft.a $(NAME)
 		$(AR) $(ARFLAGS) $(NAME) $(OBJS_FILES)
 
 clean :
