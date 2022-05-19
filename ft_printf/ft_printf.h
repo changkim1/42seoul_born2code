@@ -25,14 +25,17 @@ int		print_str(char *str);
 int		print_numb(int n);
 int		print_unsigned(int n);
 
-int		print_low_hex(int n);
-int		print_upper_hex(int n);
+int		print_low_hex(unsigned int n);
+int		print_upper_hex(unsigned int n);
 
 int		print_pointer(void *pt);
+int		print_pointer_hex(uintptr_t n);
+void	ft_puthex_pointer(uintptr_t n, int count, char *hex);
 
-void	ft_putnbr(int n, char *str, int count);
-void	ft_putnbr_u(unsigned int n, char *str, int count);
+void	ft_putnbr(int n, int count);
+void	ft_putnbr_u(unsigned int n, int count);
 void	make_hex(char *str, char checker);
-void	ft_puthex(unsigned int n, char *str, int count, char *hex);
+void	ft_puthex(unsigned int n, int count, char *hex);
+int		zero_and_minus(int n);
 
 #endif

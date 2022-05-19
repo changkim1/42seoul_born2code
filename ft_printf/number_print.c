@@ -16,7 +16,6 @@ int	print_numb(int n)
 {
 	int		tmp;
 	int		count;
-	char	*str;
 
 	count = 0;
 	tmp = n;
@@ -30,15 +29,16 @@ int	print_numb(int n)
 		tmp /= 10;
 		count++;
 	}
-	str = (char *)malloc(count + 1);
-	ft_putnbr(n, str, count);
+	if (n == 0 || n == -2147483648)
+		count = zero_and_minus(n);
+	else
+		ft_putnbr(n, count);
 	return (count);
 }
 
 int	print_unsigned(int n)
 {
 	unsigned int	tmp;
-	char			*str;
 	int				count;
 
 	count = 0;
@@ -48,24 +48,25 @@ int	print_unsigned(int n)
 		tmp /= 10;
 		count++;
 	}
-	str = (char *)malloc(count + 1);
-	tmp = n;
-	ft_putnbr_u(tmp, str, count);
+	if (n == 0)
+		count = zero_and_minus(n);
+	else
+	{
+		tmp = n;
+		ft_putnbr_u(tmp, count);
+	}
 	return (count);
 }
 
-void	ft_putnbr(int n, char *str, int count)
+void	ft_putnbr(int n, int count)
 {
-	int	i;
+	int		i;
+	char	*str;
 
+	str = (char *)malloc(count + 1);
 	i = count;
 	str[i] = 0;
 	i--;
-	if (n == 0)
-	{
-		write(1, "0", 1);
-		return ;
-	}
 	if (n < 0)
 	{
 		str[0] = '-';
@@ -81,10 +82,12 @@ void	ft_putnbr(int n, char *str, int count)
 	free(str);
 }
 
-void	ft_putnbr_u(unsigned int n, char *str, int count)
+void	ft_putnbr_u(unsigned int n, int count)
 {
-	int	i;
+	int		i;
+	char	*str;
 
+	str = (char *)malloc(count + 1);
 	i = count;
 	str[i] = 0;
 	i--;
@@ -101,4 +104,22 @@ void	ft_putnbr_u(unsigned int n, char *str, int count)
 	}
 	write(1, str, count);
 	free(str);
+}
+
+int	zero_and_minus(int n)
+{
+	int	count;
+
+	count = 0;
+	if (n == 0)
+	{
+		write(1, "0", 1);
+		count = 1;
+	}
+	if (n == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		count = 11;
+	}
+	return (count);
 }

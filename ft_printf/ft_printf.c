@@ -11,11 +11,14 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
+#include <limits.h>
 
 int	check_format(char type, va_list vl)
 {
 	int	ret;
 
+	ret = 0;
 	if (type == 'c')
 		ret = print_char(va_arg(vl, int));
 	else if (type == 's')
@@ -27,11 +30,14 @@ int	check_format(char type, va_list vl)
 	else if (type == 'u')
 		ret = print_unsigned(va_arg(vl, int));
 	else if (type == 'x')
-		ret = print_low_hex(va_arg(vl, int));
+		ret = print_low_hex(va_arg(vl, unsigned int));
 	else if (type == 'X')
-		ret = print_upper_hex(va_arg(vl, int));
+		ret = print_upper_hex(va_arg(vl, unsigned int));
 	else if (type == '%')
+	{
 		write(1, "%", 1);
+		ret++;
+	}
 	return (ret);
 }
 
