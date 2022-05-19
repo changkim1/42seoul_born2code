@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 22:30:01 by changkim          #+#    #+#             */
-/*   Updated: 2022/05/19 18:16:07 by changkim         ###   ########.fr       */
+/*   Updated: 2022/05/19 18:17:12 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	print_pointer(void *pt)
 {
-	uintptr_t 	ptr;
+	uintptr_t	ptr;
 	int			count;
 
 	ptr = (uintptr_t)pt;
