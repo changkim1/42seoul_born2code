@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-#include <limits.h>
 
 int	check_format(char type, va_list vl)
 {
