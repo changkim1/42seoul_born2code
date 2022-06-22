@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 20:40:46 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/23 02:15:01 by changkim         ###   ########.fr       */
+/*   Created: 2022/06/23 00:40:59 by changkim          #+#    #+#             */
+/*   Updated: 2022/06/23 01:42:12 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	game_init(t_ptr *ptr, char *ber)
+void	free_map(void *check)
 {
-	t_map *map;
-	
-	ptr->mlx = mlx_init();
-	check_map(map, ber);
-	printf("check\n");
-	ptr->win = mlx_new_window(ptr->mlx, map->wid * 60, map->hei * 60, 
-			"changkim's so_long");
-	printf("check\n");
+	t_map	*map;
+	int 	i;
+
+	i = 0;
+	map = (t_map *)check;
+	while (i < map->hei)
+	{
+		free(map->map[i]);
+		i++;
+	}
 }
 
-int main(int ac, char **av)
+void	print_error(char *error, void *check)
 {
-	t_ptr	ptr;
-	
-	if (ac != 2)
-	{
-		print_error("It must be './so_long [FILE.ber]'\n", (void *)1);
-		return (0);
-	}
-	game_init(&ptr, av[1]);
-	mlx_loop(ptr.mlx);
+	write(2, "Error\n", 6);
+	write(1, error, ft_strlen(error));
+	if (error[0] == 'M')
+		free_map(check);
+	exit(1);
 }

@@ -5,34 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/22 20:40:46 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/23 02:15:01 by changkim         ###   ########.fr       */
+/*   Created: 2022/06/22 23:52:49 by changkim          #+#    #+#             */
+/*   Updated: 2022/06/23 00:38:08 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
 
-void	game_init(t_ptr *ptr, char *ber)
+void	test(int fd, char *str)
 {
-	t_map *map;
-	
-	ptr->mlx = mlx_init();
-	check_map(map, ber);
-	printf("check\n");
-	ptr->win = mlx_new_window(ptr->mlx, map->wid * 60, map->hei * 60, 
-			"changkim's so_long");
-	printf("check\n");
+	while (str != NULL)
+	{
+		str = get_next_line_no_new_line(fd);
+		printf("%s\n", str);
+	}
 }
 
-int main(int ac, char **av)
+int main(void)
 {
-	t_ptr	ptr;
-	
-	if (ac != 2)
-	{
-		print_error("It must be './so_long [FILE.ber]'\n", (void *)1);
-		return (0);
-	}
-	game_init(&ptr, av[1]);
-	mlx_loop(ptr.mlx);
+	char *str, *str1;
+	int fd = open("test.txt", O_RDONLY);
+	test(fd, str);
+	printf("End\n");
+	close(fd);
+	fd = open("test.txt", O_RDONLY);
+	test(fd, str1);
 }
