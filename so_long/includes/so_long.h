@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:19:48 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/23 01:39:11 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/23 21:35:14 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include "../mlx_lib/mlx.h"
 # include "../libft/libft.h"
-# include "../get_next_line/get_next_line.h"
+# include "../includes/get_next_line.h"
 
 # define X_EVENT_KEY_PRESS 2
 # define X_EVENT_KEY_RELEASE 3
@@ -30,6 +30,8 @@
 # define KEY_A 0
 # define KEY_S 1
 # define KEY_D 2
+
+# define SET_PIX 60
 
 typedef struct s_img{
 	void	*player;
@@ -64,7 +66,7 @@ typedef struct s_player_coo{
 }				t_player_coo;
 
 /////////////////// main.c ///////////////////
-void	game_init(t_ptr *ptr, char *ber);
+void	game_init(t_ptr *ptr, char *ber, t_map *map);
 
 
 /////////////////// error.c ///////////////////
@@ -78,5 +80,9 @@ void	wall_check(t_map *map);
 void	param_rect_check(t_map *map);
 void	check_map(t_map *map, char *ber);
 
+/////////////////// image.c ///////////////////
+t_img	img_init(t_ptr *ptr);
+void	put_image(t_img *img, t_map *map, t_ptr *ptr, int h, int w);
+void	img_set(t_map *map, t_ptr *ptr);
 
 #endif

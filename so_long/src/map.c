@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 23:29:15 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/23 01:57:44 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/23 20:43:11 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,8 @@ void	check_wid_hei(t_map *map, int fd)
 
 void	make_map(char *ber, t_map *map)
 {
-	char	*line;
-	int		fd;
-	int		i;
+	int	fd;
+	int	i;
 	
 	fd = open(ber, O_RDONLY);
 	map->hei = 0;
@@ -78,7 +77,7 @@ void	param_rect_check(t_map *map)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < map->hei)
 	{

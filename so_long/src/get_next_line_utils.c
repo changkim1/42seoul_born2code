@@ -6,11 +6,11 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:47:11 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/23 00:19:51 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/23 19:47:24 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 int	ft_strlen_gnl(char *str)
 {

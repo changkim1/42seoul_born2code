@@ -6,11 +6,11 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 19:40:33 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/23 00:20:41 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/23 19:47:32 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/get_next_line.h"
 
 char	*ft_read(char *backup, int fd)
 {
