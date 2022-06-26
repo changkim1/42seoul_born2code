@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:19:48 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/23 21:35:14 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/26 22:40:37 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,27 +50,33 @@ typedef struct s_map{
 	char	**map;
 }				t_map;
 
-typedef struct s_game{
-	int		collect;
-	int		walk;
-}				t_game;
-
 typedef struct s_ptr{
 	void	*mlx;
 	void	*win;
 }				t_ptr;
 
-typedef struct s_player_coo{
+typedef struct s_p_coo{
 	int	x;
 	int	y;
-}				t_player_coo;
+}				t_p_coo;
+
+typedef struct s_game{
+	t_ptr	ptr;
+	t_map	map;
+	t_img	img;
+	t_p_coo	p_coo;
+	int		collect;
+	int		walk;
+}				t_game;
 
 /////////////////// main.c ///////////////////
-void	game_init(t_ptr *ptr, char *ber, t_map *map);
+void	game_init(t_game *game, char *ber);
+int		exit_game(t_game *game);
 
 
 /////////////////// error.c ///////////////////
 void	print_error(char *error, void *check);
+void	free_map(void *check);
 
 
 /////////////////// map.c ///////////////////
@@ -80,9 +86,18 @@ void	wall_check(t_map *map);
 void	param_rect_check(t_map *map);
 void	check_map(t_map *map, char *ber);
 
+
 /////////////////// image.c ///////////////////
 t_img	img_init(t_ptr *ptr);
 void	put_image(t_img *img, t_map *map, t_ptr *ptr, int h, int w);
 void	img_set(t_map *map, t_ptr *ptr);
+
+
+/////////////////// key_action.c ///////////////////
+void	where_is_player_at_first(t_game *game);
+void	success_mission(t_game *game);
+int		check_move(t_game *game, int i, int j);
+int		press_key(int keycode, t_game *game);
+void	moving(t_game *game, int keycode);
 
 #endif

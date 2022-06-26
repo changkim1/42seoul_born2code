@@ -6,33 +6,68 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 20:40:46 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/23 21:32:24 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/26 23:18:17 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	game_init(t_ptr *ptr, char *ber, t_map *map)
+int exit_game(t_game *game)
 {
-	ptr->mlx = mlx_init();
-	check_map(map, ber);
-	ptr->win = mlx_new_window(ptr->mlx, map->wid * 60, map->hei * 60, 
+	free_map((void *)(&game->map));
+	mlx_destroy_window(game->ptr.mlx, game->ptr.win);
+	exit(0);
+}
+
+void	game_init(t_game *game, char *ber)
+{
+	game->ptr.mlx = mlx_init();
+	if (game->ptr.mlx == 0)
+		exit(1);
+	check_map(&game->map, ber);
+	game->ptr.win = mlx_new_window(game->ptr.mlx, game->map.wid * 60, game->map.hei * 60, 
 			"changkim's so_long");
-	img_set(map, ptr);
+	if (game->ptr.win == 0)
+		exit(1);
+	img_set(&game->map, &game->ptr);
+}
+
+int	check_ber(char *av)
+{
+	int		i;
+	int		ret;
+	char	**str;
+	
+	i = 0;
+	str = ft_split(av, '.');
+	while (str[i])
+		i++;
+	i--;
+	if (strcmp(str[i], "ber") == 0)
+		ret = 1;
+	else
+		ret = 0;
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	return (ret);
 }
 
 int main(int ac, char **av)
 {
-	t_ptr	ptr;
-	t_map	map;
-	
-	if (ac != 2)
+	t_game	game;
+
+	if (ac != 2 || check_ber(av[1]) == 0)
 	{
 		print_error("It must be './so_long [FILE.ber]'\n", (void *)1);
 		return (0);
 	}
-	game_init(&ptr, av[1], &map);
-	// mlx_hook(ptr.win, X_EVENT_KEY_PRESS, 0, );
-	
-	mlx_loop(ptr.mlx);
+	game_init(&game, av[1]);
+	mlx_hook(game.ptr.win, X_EVENT_KEY_PRESS, 0, &press_key, &game);
+	mlx_hook(game.ptr.win, X_EVENT_KEY_EXIT, 0, &exit_game, &game);
+	mlx_loop(game.ptr.mlx);
 }

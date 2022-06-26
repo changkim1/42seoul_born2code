@@ -6,7 +6,7 @@
 #    By: changkim <changkim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/23 19:40:59 by changkim          #+#    #+#              #
-#    Updated: 2022/06/23 21:04:43 by changkim         ###   ########.fr        #
+#    Updated: 2022/06/26 23:19:47 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,9 @@ SRCS		= src/main.c \
 			  src/error.c \
 			  src/map.c \
 			  src/image.c \
+			  src/key_action.c \
 			  src/get_next_line.c \
-			  src/get_next_line_utils.c \
+			  src/get_next_line_utils.c
 
 
 OBJS		= $(SRCS:.c=.o)
@@ -56,6 +57,11 @@ fclean : clean
 		$(RM) $(NAME) $(OBJS_FILES)
 		$(RM) libft.a
 		make fclean -C libft/
+
+git : fclean
+		git add *
+		git commit -m "so_long"
+		git push
 
 re : fclean all
 

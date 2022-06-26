@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 23:29:15 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/23 20:43:11 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/26 21:59:40 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,17 @@ void	make_map(char *ber, t_map *map)
 	check_wid_hei(map, fd);
 	close(fd);
 	map->map = (char **)malloc(sizeof(char *) * (map->hei + 1));
+	if (!map->map)
+		exit(1);
 	fd = open(ber, O_RDONLY);
+	if (fd <= 0)
+		print_error("File open is Failed\n", 0);
 	i = 0;
 	while (i < map->hei)
 	{
 		map->map[i] = (char *)malloc(map->wid + 1);
+		if (!map->map[i])
+			exit(1);
 		map->map[i] = get_next_line_no_new_line(fd);
 		i++;
 	}
@@ -78,8 +84,8 @@ void	param_rect_check(t_map *map)
 	int	i;
 	int	j;
 
-	i = 0;
-	while (i < map->hei)
+	i = -1;
+	while (++i < map->hei)
 	{
 		j = 0;
 		while (map->map[i][j])
@@ -94,7 +100,6 @@ void	param_rect_check(t_map *map)
 		}
 		if (j != map->wid)
 			print_error("Map error (rectangular error)\n", (void *)map);
-		i++;
 	}
 	if (map->cnt_p != 1 || map->cnt_e != 1 || map->cnt_m < 1)
 		print_error("Map error (param error)\n", (void *)map);
@@ -106,12 +111,6 @@ void	check_map(t_map *map, char *ber)
 	map->cnt_e = 0;
 	map->cnt_m = 0;
 	make_map(ber, map);
-	printf("%d %d\n", map->hei, map->wid);
-	for (int i = 0; i < map->hei; i++)
-	{
-		printf("%s\n", map->map[i]);
-	}
 	wall_check(map);
 	param_rect_check(map);
-	printf("map print\n");
 }
