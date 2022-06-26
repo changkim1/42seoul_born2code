@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:46:38 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/27 00:43:18 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 01:04:32 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	moving(t_game *game, int keycode)
 		i = game->p_coo.y;
 		j = game->p_coo.x;
 		game->map.map[i][j] = 'P';
-		img_set(game, &game->ptr);
+		img_set(game);
 	}
 }
 

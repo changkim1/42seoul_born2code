@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 20:40:46 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/27 00:47:11 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 01:04:21 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	game_init(t_game *game, char *ber)
 			game->map.wid * 60, game->map.hei * 60, "changkim's so_long");
 	if (game->ptr.win == 0)
 		exit(1);
-	img_set(game, &game->ptr);
+	img_set(game);
 }
 
 int	check_ber(char *av)
