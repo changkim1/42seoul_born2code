@@ -6,7 +6,7 @@
 #    By: changkim <changkim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/23 19:40:59 by changkim          #+#    #+#              #
-#    Updated: 2022/06/26 23:19:47 by changkim         ###   ########.fr        #
+#    Updated: 2022/06/26 23:20:48 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ fclean : clean
 		make fclean -C libft/
 
 git : fclean
+		rm -rf *.ber
 		git add *
 		git commit -m "so_long"
 		git push
