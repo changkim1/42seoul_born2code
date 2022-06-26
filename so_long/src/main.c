@@ -6,17 +6,23 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 20:40:46 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/26 23:18:17 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 00:47:11 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int exit_game(t_game *game)
+int	exit_game(t_game *game)
 {
 	free_map((void *)(&game->map));
 	mlx_destroy_window(game->ptr.mlx, game->ptr.win);
 	exit(0);
+}
+
+void	check_ber_size(t_map *map)
+{
+	if (map->hei * SET_PIX >= MAX_HEI || map->wid * SET_PIX >= MAX_WID)
+		print_error("Map is too big!\n", 0);
 }
 
 void	game_init(t_game *game, char *ber)
@@ -25,11 +31,11 @@ void	game_init(t_game *game, char *ber)
 	if (game->ptr.mlx == 0)
 		exit(1);
 	check_map(&game->map, ber);
-	game->ptr.win = mlx_new_window(game->ptr.mlx, game->map.wid * 60, game->map.hei * 60, 
-			"changkim's so_long");
+	game->ptr.win = mlx_new_window(game->ptr.mlx,
+			game->map.wid * 60, game->map.hei * 60, "changkim's so_long");
 	if (game->ptr.win == 0)
 		exit(1);
-	img_set(&game->map, &game->ptr);
+	img_set(game, &game->ptr);
 }
 
 int	check_ber(char *av)
@@ -37,7 +43,7 @@ int	check_ber(char *av)
 	int		i;
 	int		ret;
 	char	**str;
-	
+
 	i = 0;
 	str = ft_split(av, '.');
 	while (str[i])
@@ -57,7 +63,7 @@ int	check_ber(char *av)
 	return (ret);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_game	game;
 

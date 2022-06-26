@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:46:38 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/26 23:03:38 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 00:43:18 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	check_move(t_game *game, int i, int j)
 		if (game->collect == game->map.cnt_m)
 			success_mission(game);
 		else
-			printf("You must take %d minion(s) more\n", 
+			printf("You must take %d minion(s) more\n",
 				game->map.cnt_m - game->collect);
 	}
 	else
@@ -76,7 +76,7 @@ void	moving(t_game *game, int keycode)
 	int	i;
 	int	j;
 	int	can_move;
-	
+
 	where_is_player_at_first(game);
 	can_move = 0;
 	i = game->p_coo.y;
@@ -95,11 +95,11 @@ void	moving(t_game *game, int keycode)
 		i = game->p_coo.y;
 		j = game->p_coo.x;
 		game->map.map[i][j] = 'P';
-		img_set(&game->map, &game->ptr);
+		img_set(game, &game->ptr);
 	}
 }
 
-int		press_key(int keycode, t_game *game)
+int	press_key(int keycode, t_game *game)
 {
 	if (keycode == KEY_ESC)
 		exit_game(game);

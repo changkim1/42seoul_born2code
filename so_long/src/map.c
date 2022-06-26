@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 23:29:15 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/26 21:59:40 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 00:57:45 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	check_wid_hei(t_map *map, int fd)
 {
 	char	*line;
-	
+
 	line = get_next_line_no_new_line(fd);
 	map->wid = ft_strlen(line);
 	while (line != NULL)
@@ -23,13 +23,14 @@ void	check_wid_hei(t_map *map, int fd)
 		line = get_next_line_no_new_line(fd);
 		map->hei++;
 	}
+	check_ber_size(map);
 }
 
 void	make_map(char *ber, t_map *map)
 {
 	int	fd;
 	int	i;
-	
+
 	fd = open(ber, O_RDONLY);
 	map->hei = 0;
 	check_wid_hei(map, fd);
@@ -96,6 +97,9 @@ void	param_rect_check(t_map *map)
 				map->cnt_e++;
 			else if (map->map[i][j] == 'C')
 				map->cnt_m++;
+			else if (map->map[i][j] != '0' && map->map[i][j] != '1')
+				print_error("Map error (param error)\n",
+					(void *)map);
 			j++;
 		}
 		if (j != map->wid)

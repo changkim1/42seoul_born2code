@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:19:48 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/26 22:40:37 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 00:58:07 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 # define KEY_D 2
 
 # define SET_PIX 60
+# define MAX_HEI 1440
+# define MAX_WID 2560
 
 typedef struct s_img{
 	void	*player;
@@ -72,12 +74,11 @@ typedef struct s_game{
 /////////////////// main.c ///////////////////
 void	game_init(t_game *game, char *ber);
 int		exit_game(t_game *game);
-
+void	check_ber_size(t_map *map);
 
 /////////////////// error.c ///////////////////
-void	print_error(char *error, void *check);
+void	print_error(char *error, void *free_check);
 void	free_map(void *check);
-
 
 /////////////////// map.c ///////////////////
 void	check_wid_hei(t_map *map, int fd);
@@ -86,12 +87,10 @@ void	wall_check(t_map *map);
 void	param_rect_check(t_map *map);
 void	check_map(t_map *map, char *ber);
 
-
 /////////////////// image.c ///////////////////
-t_img	img_init(t_ptr *ptr);
-void	put_image(t_img *img, t_map *map, t_ptr *ptr, int h, int w);
-void	img_set(t_map *map, t_ptr *ptr);
-
+void	img_init(t_game *game);
+void	put_image(t_game *game, int h, int w);
+void	img_set(t_game *game);
 
 /////////////////// key_action.c ///////////////////
 void	where_is_player_at_first(t_game *game);
