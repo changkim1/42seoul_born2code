@@ -6,32 +6,35 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 00:40:59 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/27 00:40:10 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:35:40 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	free_map(void *check)
+void	free_map(t_game *game)
 {
-	t_map	*map;
-	int		i;
+	int	i;
 
 	i = 0;
-	map = (t_map *)check;
-	while (i < map->hei)
+	while (i < game->map.hei)
 	{
-		free(map->map[i]);
+		free(game->map.map[i]);
 		i++;
 	}
+	free(game->map.map);
 }
 
-void	print_error(char *error, void *free_check)
+void	print_error(char *error, t_game *game)
 {
 	printf("Error\n%s\n", error);
-	if (free_check == 0)
+	if (game == 0)
+	{
+		mlx_destroy_window(game->ptr.mlx, game->ptr.win);
 		exit(1);
+	}
 	if (error[0] == 'M')
-		free_map(free_check);
+		free_map(game);
+	mlx_destroy_window(game->ptr.mlx, game->ptr.win);
 	exit(1);
 }

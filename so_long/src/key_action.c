@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:46:38 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/27 01:04:32 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:37:00 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	success_mission(t_game *game)
 	game->walk++;
 	printf("%d\n", game->walk);
 	printf("Teemo is Godlike!\n");
+	free_map(game);
+	mlx_destroy_window(game->ptr.mlx, game->ptr.win);
 	exit(0);
 }
 

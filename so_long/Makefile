@@ -6,7 +6,7 @@
 #    By: changkim <changkim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/23 19:40:59 by changkim          #+#    #+#              #
-#    Updated: 2022/06/26 23:22:12 by changkim         ###   ########.fr        #
+#    Updated: 2022/06/27 21:22:22 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ all : $(NAME)
 $(NAME) : $(OBJS_FILES)
 		
 		$(MAKE) -C ./libft
-		$(CC) $(CFLAG) $(OBJS_FILES) -L./libft -lft $(MLX) -o $(NAME)
+		$(CC) $(CFLAG) $(OBJS_FILES) -L./libft -lft $(MLX) -g -o $(NAME)
 
 clean :
 		$(RM) $(OBJS)

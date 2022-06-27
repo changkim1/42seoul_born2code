@@ -6,73 +6,76 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 23:29:15 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/27 00:57:45 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 22:00:13 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	check_wid_hei(t_map *map, int fd)
+void	check_wid_hei(t_game *game, int fd)
 {
 	char	*line;
 
 	line = get_next_line_no_new_line(fd);
-	map->wid = ft_strlen(line);
+	free(line);
+	game->map.wid = ft_strlen(line);
 	while (line != NULL)
 	{
 		line = get_next_line_no_new_line(fd);
-		map->hei++;
+		free(line);
+		game->map.hei++;
 	}
-	check_ber_size(map);
+	check_ber_size(game);
 }
 
-void	make_map(char *ber, t_map *map)
+void	make_map(char *ber, t_game *game)
 {
 	int	fd;
 	int	i;
 
 	fd = open(ber, O_RDONLY);
-	map->hei = 0;
-	check_wid_hei(map, fd);
+	game->map.hei = 0;
+	check_wid_hei(game, fd);
 	close(fd);
-	map->map = (char **)malloc(sizeof(char *) * (map->hei + 1));
-	if (!map->map)
+	game->map.map = (char **)malloc(sizeof(char *) * (game->map.hei + 1));
+	if (!game->map.map)
 		exit(1);
 	fd = open(ber, O_RDONLY);
 	if (fd <= 0)
 		print_error("File open is Failed\n", 0);
 	i = 0;
-	while (i < map->hei)
+	while (i < game->map.hei)
 	{
-		map->map[i] = (char *)malloc(map->wid + 1);
-		if (!map->map[i])
+		game->map.map[i] = (char *)malloc(game->map.wid + 1);
+		if (!game->map.map[i])
 			exit(1);
-		map->map[i] = get_next_line_no_new_line(fd);
+		game->map.map[i] = get_next_line_no_new_line(fd);
+		system("leaks -list so_long");
 		i++;
 	}
 	close(fd);
 }
 
-void	wall_check(t_map *map)
+void	wall_check(t_game *game)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < map->hei)
+	while (i < game->map.hei)
 	{
 		j = 0;
-		while (j < map->wid)
+		while (j < game->map.wid)
 		{
-			if (i == 0 || i == (map->hei - 1))
+			if (i == 0 || i == (game->map.hei - 1))
 			{
-				if (map->map[i][j] != '1')
-					print_error("Map error (wall error)\n", (void *)map);
+				if (game->map.map[i][j] != '1')
+					print_error("Map error (wall error)\n", game);
 			}
-			else if (j == 0 || j == map->wid - 1)
+			else if (j == 0 || j == game->map.wid - 1)
 			{
-				if (map->map[i][j] != '1')
-					print_error("Map error (wall error)\n", (void *)map);
+				if (game->map.map[i][j] != '1')
+					print_error("Map error (wall error)\n", game);
 			}
 			j++;
 		}
@@ -80,41 +83,40 @@ void	wall_check(t_map *map)
 	}
 }
 
-void	param_rect_check(t_map *map)
+void	param_rect_check(t_game *game)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i < map->hei)
+	while (++i < game->map.hei)
 	{
 		j = 0;
-		while (map->map[i][j])
+		while (game->map.map[i][j])
 		{
-			if (map->map[i][j] == 'P')
-				map->cnt_p++;
-			else if (map->map[i][j] == 'E')
-				map->cnt_e++;
-			else if (map->map[i][j] == 'C')
-				map->cnt_m++;
-			else if (map->map[i][j] != '0' && map->map[i][j] != '1')
-				print_error("Map error (param error)\n",
-					(void *)map);
+			if (game->map.map[i][j] == 'P')
+				game->map.cnt_p++;
+			else if (game->map.map[i][j] == 'E')
+				game->map.cnt_e++;
+			else if (game->map.map[i][j] == 'C')
+				game->map.cnt_m++;
+			else if (game->map.map[i][j] != '0' && game->map.map[i][j] != '1')
+				print_error("Map error (param error)\n", game);
 			j++;
 		}
-		if (j != map->wid)
-			print_error("Map error (rectangular error)\n", (void *)map);
+		if (j != game->map.wid)
+			print_error("Map error (rectangular error)\n", game);
 	}
-	if (map->cnt_p != 1 || map->cnt_e != 1 || map->cnt_m < 1)
-		print_error("Map error (param error)\n", (void *)map);
+	if (game->map.cnt_p != 1 || game->map.cnt_e != 1 || game->map.cnt_m < 1)
+		print_error("Map error (param error)\n", game);
 }
 
-void	check_map(t_map *map, char *ber)
+void	check_map(t_game *game, char *ber)
 {
-	map->cnt_p = 0;
-	map->cnt_e = 0;
-	map->cnt_m = 0;
-	make_map(ber, map);
-	wall_check(map);
-	param_rect_check(map);
+	game->map.cnt_p = 0;
+	game->map.cnt_e = 0;
+	game->map.cnt_m = 0;
+	make_map(ber, game);
+	wall_check(game);
+	param_rect_check(game);
 }

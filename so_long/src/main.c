@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 20:40:46 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/27 01:04:21 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:48:58 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	exit_game(t_game *game)
 {
-	free_map((void *)(&game->map));
+	free_map(game);
 	mlx_destroy_window(game->ptr.mlx, game->ptr.win);
 	exit(0);
 }
 
-void	check_ber_size(t_map *map)
+void	check_ber_size(t_game *game)
 {
-	if (map->hei * SET_PIX >= MAX_HEI || map->wid * SET_PIX >= MAX_WID)
+	if (game->map.hei * SET_PIX >= MAX_HEI || game->map.wid * SET_PIX >= MAX_WID)
 		print_error("Map is too big!\n", 0);
 }
 
@@ -30,7 +30,7 @@ void	game_init(t_game *game, char *ber)
 	game->ptr.mlx = mlx_init();
 	if (game->ptr.mlx == 0)
 		exit(1);
-	check_map(&game->map, ber);
+	check_map(game, ber);
 	game->ptr.win = mlx_new_window(game->ptr.mlx,
 			game->map.wid * 60, game->map.hei * 60, "changkim's so_long");
 	if (game->ptr.win == 0)

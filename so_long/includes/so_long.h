@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 16:19:48 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/27 00:58:07 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 21:34:52 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,18 @@ typedef struct s_game{
 /////////////////// main.c ///////////////////
 void	game_init(t_game *game, char *ber);
 int		exit_game(t_game *game);
-void	check_ber_size(t_map *map);
+void	check_ber_size(t_game *game);
 
 /////////////////// error.c ///////////////////
-void	print_error(char *error, void *free_check);
-void	free_map(void *check);
+void	print_error(char *error, t_game *game);
+void	free_map(t_game *game);
 
 /////////////////// map.c ///////////////////
-void	check_wid_hei(t_map *map, int fd);
-void	make_map(char *ber, t_map *map);
-void	wall_check(t_map *map);
-void	param_rect_check(t_map *map);
-void	check_map(t_map *map, char *ber);
+void	check_wid_hei(t_game *game, int fd);
+void	make_map(char *ber, t_game *game);
+void	wall_check(t_game *game);
+void	param_rect_check(t_game *game);
+void	check_map(t_game *game, char *ber);
 
 /////////////////// image.c ///////////////////
 void	img_init(t_game *game);
