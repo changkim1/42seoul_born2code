@@ -6,7 +6,7 @@
 #    By: changkim <changkim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/23 19:40:59 by changkim          #+#    #+#              #
-#    Updated: 2022/06/27 21:22:22 by changkim         ###   ########.fr        #
+#    Updated: 2022/06/27 22:39:13 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		= so_long
 
 MLX			= -L./mlx_lib -lmlx -framework OpenGL -framework AppKit
 
-CC			= gcc
+CC			= cc
 CFLAG		= -Wall -Wextra -Werror
 
 RM			= rm -rf
@@ -60,7 +60,6 @@ fclean : clean
 
 git : fclean
 		cd includes; rm -rf *.gch
-		rm -rf *.ber
 		git add *
 		git commit -m "so_long"
 		git push

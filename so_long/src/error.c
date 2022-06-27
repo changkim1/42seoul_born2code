@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 00:40:59 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/27 21:35:40 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 22:22:37 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,8 @@ void	print_error(char *error, t_game *game)
 {
 	printf("Error\n%s\n", error);
 	if (game == 0)
-	{
-		mlx_destroy_window(game->ptr.mlx, game->ptr.win);
 		exit(1);
-	}
 	if (error[0] == 'M')
 		free_map(game);
-	mlx_destroy_window(game->ptr.mlx, game->ptr.win);
 	exit(1);
 }

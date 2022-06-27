@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 23:29:15 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/27 22:00:13 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 22:31:01 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,9 @@ void	make_map(char *ber, t_game *game)
 	i = 0;
 	while (i < game->map.hei)
 	{
-		game->map.map[i] = (char *)malloc(game->map.wid + 1);
 		if (!game->map.map[i])
 			exit(1);
 		game->map.map[i] = get_next_line_no_new_line(fd);
-		system("leaks -list so_long");
 		i++;
 	}
 	close(fd);
@@ -72,7 +70,7 @@ void	wall_check(t_game *game)
 				if (game->map.map[i][j] != '1')
 					print_error("Map error (wall error)\n", game);
 			}
-			else if (j == 0 || j == game->map.wid - 1)
+			if (i != 0 && i != (game->map.hei -1) && (j == 0 || j == game->map.wid - 1))
 			{
 				if (game->map.map[i][j] != '1')
 					print_error("Map error (wall error)\n", game);
