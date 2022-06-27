@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 20:40:46 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/27 22:27:40 by changkim         ###   ########.fr       */
+/*   Updated: 2022/06/27 22:47:55 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int	check_ber(char *av)
 	while (str[i])
 		i++;
 	i--;
+	if (i == 0)
+		print_error("arg is invalid\n", 0);
 	if (strcmp(str[i], "ber") == 0)
 		ret = 1;
 	else
