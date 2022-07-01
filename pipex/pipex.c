@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zzankor <zzankor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 22:52:59 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/30 22:02:55 by changkim         ###   ########.fr       */
+/*   Updated: 2022/07/01 14:27:45 by zzankor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,14 @@ void	px_redirection(char *cmd, char **envp)
 {
 	int		fd[2];
 	pid_t	pid;
+	int		ret;
 
+	ret = pipe(fd);
 	pid = fork();
-	pipe(fd);
-	// if (pid < 0)
-	// 	print_error_with_nl(1, "pipex: fork error");
+	if (ret < 0)
+		print_error_with_nl(1, "pipex: fork error");
+	if (pid < 0)
+		print_error_with_nl(1, "pipex: pipe error");
 	if (pid == 0)
 	{
 		close(fd[0]);
@@ -53,9 +56,6 @@ void	px_redirection(char *cmd, char **envp)
 		close(fd[1]);
 		dup2(fd[0], STDIN);
 		waitpid(pid, NULL, 0);
-		char str[20];
-		int tmp = read(fd[0], str, 19);
-		fprintf(stderr, "tmp = %d str = %s\n", tmp, str);
 	}
 }
 
@@ -71,11 +71,17 @@ void	px_execve(char *cmd, char **envp)
 	print_error_with_nl(127, cmd);
 }
 
+void	checkleack(void)
+{
+	system("leaks pipex");
+}
+
 int main(int argc, char * const *argv, char **envp)
 {
 	int	in_fd;
 	int	out_fd;
 	
+	atexit(checkleack);
 	if (argc == 5)
 	{
 		in_fd = px_open_file(argv[1], IN);
