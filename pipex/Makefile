@@ -6,7 +6,7 @@
 #    By: zzankor <zzankor@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/01 14:15:49 by zzankor           #+#    #+#              #
-#    Updated: 2022/07/01 14:35:03 by zzankor          ###   ########.fr        #
+#    Updated: 2022/07/01 14:47:39 by zzankor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,12 +54,12 @@ $(NAME) : $(OBJS_FILES)
 
 clean :
 		$(RM) $(OBJS)
-		$(MAKE) clean -C libft
+		make clean -C libft
 
 fclean : clean
 		$(RM) $(NAME)
 		$(RM) libft.a
-		$(MAKE) fclean -C libft
+		make fclean -C libft
 
 re : fclean all
 
