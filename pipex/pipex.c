@@ -6,7 +6,7 @@
 /*   By: zzankor <zzankor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 22:52:59 by changkim          #+#    #+#             */
-/*   Updated: 2022/07/01 14:27:45 by zzankor          ###   ########.fr       */
+/*   Updated: 2022/07/04 14:41:46 by zzankor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	px_open_file(char *filename, int check)
 		{
 			write(STDERR, "pipex: ", 7);
 			write(STDERR, filename, px_strchr_idx(filename, 0));
-			write(STDERR, ": No such file of directory\n", 28);
-			return (-1);
+			write(STDERR, ": No such file or directory\n", 28);
+			exit(1);
 		}
 		else
 			return (open(filename, O_RDONLY));
@@ -67,13 +67,9 @@ void	px_execve(char *cmd, char **envp)
 	split_cmd = ft_split(cmd, ' ');
 	path = px_make_path(envp, split_cmd);
 	execve(path, split_cmd, envp);
+	free(split_cmd);
 	write(STDERR, "pipex: command not found: ", 27);
 	print_error_with_nl(127, cmd);
-}
-
-void	checkleack(void)
-{
-	system("leaks pipex");
 }
 
 int main(int argc, char * const *argv, char **envp)
@@ -81,7 +77,6 @@ int main(int argc, char * const *argv, char **envp)
 	int	in_fd;
 	int	out_fd;
 	
-	atexit(checkleack);
 	if (argc == 5)
 	{
 		in_fd = px_open_file(argv[1], IN);

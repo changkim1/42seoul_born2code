@@ -6,7 +6,7 @@
 #    By: zzankor <zzankor@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/01 14:15:49 by zzankor           #+#    #+#              #
-#    Updated: 2022/07/01 14:47:39 by zzankor          ###   ########.fr        #
+#    Updated: 2022/07/04 15:04:16 by zzankor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS_FILES)
 		$(MAKE) -C ./libft
-		$(CC) $(CLFAG) $(OBJS_FILES) -L./libft -lft -g -o $(NAME)
+		$(CC) $(CLFAG) $(OBJS_FILES) -L./libft -lft -fsanitize=leak -g -o $(NAME)
 
 clean :
 		$(RM) $(OBJS)

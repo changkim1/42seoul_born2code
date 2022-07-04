@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   path.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zzankor <zzankor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 19:49:30 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/30 20:33:06 by changkim         ###   ########.fr       */
+/*   Updated: 2022/07/04 14:43:51 by zzankor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ char	*px_make_path(char **envp, char **cmd)
 			j = i + 2;
 		}
 	}
+	free(tmp);
 	return (NULL);
 }
