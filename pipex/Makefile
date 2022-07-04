@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zzankor <zzankor@student.42.fr>            +#+  +:+       +#+         #
+#    By: changkim <changkim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/01 14:15:49 by zzankor           #+#    #+#              #
-#    Updated: 2022/07/04 15:04:16 by zzankor          ###   ########.fr        #
+#    Updated: 2022/07/04 21:22:57 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS_FILES)
 		$(MAKE) -C ./libft
-		$(CC) $(CLFAG) $(OBJS_FILES) -L./libft -lft -fsanitize=leak -g -o $(NAME)
+		$(CC) $(CLFAG) $(OBJS_FILES) -L./libft -lft -o $(NAME)
 
 clean :
 		$(RM) $(OBJS)

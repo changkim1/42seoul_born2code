@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zzankor <zzankor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 22:52:59 by changkim          #+#    #+#             */
-/*   Updated: 2022/07/04 14:41:46 by zzankor          ###   ########.fr       */
+/*   Updated: 2022/07/04 22:48:34 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,30 @@
 
 int	px_open_file(char *filename, int check)
 {
+	int	fd;
+	
 	if (check == IN)
 	{
 		if (access(filename, F_OK))
 		{
-			write(STDERR, "pipex: ", 7);
+			write(STDERR, "pipex: no such file or directory: ", 34);
 			write(STDERR, filename, px_strchr_idx(filename, 0));
-			write(STDERR, ": No such file or directory\n", 28);
-			exit(1);
+			write(STDERR, "\n", 1);
+			exit(0);
 		}
 		else
-			return (open(filename, O_RDONLY));
+		{
+			fd = open(filename, O_RDONLY);
+			return (fd);
+		}
 	}
 	else
 	{
-		return (open(filename, O_CREAT | O_WRONLY | O_TRUNC,
-				S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH));
+		fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC,
+				S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+		if (fd < 0)
+			exit(0);
+		return (fd);
 	}
 }
 
@@ -55,8 +63,8 @@ void	px_redirection(char *cmd, char **envp)
 	{
 		close(fd[1]);
 		dup2(fd[0], STDIN);
-		waitpid(pid, NULL, 0);
 	}
+	waitpid(-1, NULL, WNOHANG);
 }
 
 void	px_execve(char *cmd, char **envp)
@@ -65,7 +73,10 @@ void	px_execve(char *cmd, char **envp)
 	char	**split_cmd;
 	
 	split_cmd = ft_split(cmd, ' ');
-	path = px_make_path(envp, split_cmd);
+	if (access(split_cmd[0], F_OK) == 0)
+		path = split_cmd[0];
+	else
+		path = px_make_path(envp, split_cmd);
 	execve(path, split_cmd, envp);
 	free(split_cmd);
 	write(STDERR, "pipex: command not found: ", 27);
