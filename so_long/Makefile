@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: changkim <changkim@student.42.fr>          +#+  +:+       +#+         #
+#    By: zzankor <zzankor@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/23 19:40:59 by changkim          #+#    #+#              #
-#    Updated: 2022/06/27 22:39:13 by changkim         ###   ########.fr        #
+#    Updated: 2022/07/01 14:20:21 by zzankor          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,6 @@ all : $(NAME)
 		
 
 $(NAME) : $(OBJS_FILES)
-		
 		$(MAKE) -C ./libft
 		$(CC) $(CFLAG) $(OBJS_FILES) -L./libft -lft $(MLX) -g -o $(NAME)
 

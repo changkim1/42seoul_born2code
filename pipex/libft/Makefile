@@ -6,7 +6,7 @@ CFLAG		= -Wall -Wextra -Werror
 RM			= rm -rf
 
 AR			= ar
-ARFLAGS		= curs
+ARFLAGS		= crs
 
 INCLUDES	= ./libft.h
 
