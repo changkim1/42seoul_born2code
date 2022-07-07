@@ -6,14 +6,14 @@
 /*   By: zzankor <zzankor@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:12:32 by zzankor           #+#    #+#             */
-/*   Updated: 2022/07/07 16:04:52 by zzankor          ###   ########.fr       */
+/*   Updated: 2022/07/07 16:12:52 by zzankor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdlib.h>
+#include "libft/libft.h"
 
 typedef struct s_node
 {
