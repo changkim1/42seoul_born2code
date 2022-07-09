@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 22:52:59 by changkim          #+#    #+#             */
-/*   Updated: 2022/07/04 22:48:34 by changkim         ###   ########.fr       */
+/*   Updated: 2022/07/09 13:44:57 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ int	px_open_file(char *filename, int check)
 	}
 	else
 	{
-		fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC,
-				S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+		fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0644);
 		if (fd < 0)
 			exit(0);
 		return (fd);
@@ -64,7 +63,7 @@ void	px_redirection(char *cmd, char **envp)
 		close(fd[1]);
 		dup2(fd[0], STDIN);
 	}
-	waitpid(-1, NULL, WNOHANG);
+	waitpid(0, NULL, WNOHANG);
 }
 
 void	px_execve(char *cmd, char **envp)
