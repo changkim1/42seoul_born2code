@@ -6,15 +6,17 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 19:49:30 by changkim          #+#    #+#             */
-/*   Updated: 2022/07/04 21:34:15 by changkim         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:20:06 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+#include <stdlib.h>
+#include <unistd.h>
 
 char	*px_find_path(char **envp)
 {
-	int	i;
+	int		i;
 	char	*tmp;
 
 	i = 0;
@@ -25,7 +27,7 @@ char	*px_find_path(char **envp)
 		i++;
 	}
 	if (envp[i] == 0)
-		return (NULL);
+		return ((void *)0);
 	tmp = px_substr(envp[i], 5, px_strchr_idx(envp[i], 0) - 5);
 	return (tmp);
 }
@@ -34,7 +36,7 @@ char	*px_change_to_slash(char *path)
 {
 	int		i;
 	char	*tmp;
-	
+
 	i = 0;
 	tmp = (char *)malloc(px_strchr_idx(path, 0) + 2);
 	while (path[i])
@@ -60,7 +62,7 @@ char	*px_make_path(char **envp, char **cmd)
 	int		j;
 	char	*path;
 	char	*tmp;
-	
+
 	i = -1;
 	j = 0;
 	tmp = px_find_path(envp);
@@ -74,10 +76,10 @@ char	*px_make_path(char **envp, char **cmd)
 			if (access(path, F_OK) == 0)
 				return (path);
 			if (tmp[i + 1] == 0)
-				return (NULL);
+				return ((void *)0);
 			j = i + 2;
 		}
 	}
 	free(tmp);
-	return (NULL);
+	return ((void *)0);
 }

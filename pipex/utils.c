@@ -6,11 +6,12 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 12:36:47 by changkim          #+#    #+#             */
-/*   Updated: 2022/06/30 19:32:54 by changkim         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:17:54 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+#include <stdlib.h>
 
 int	px_strchr_idx(char *str, char c)
 {
@@ -40,7 +41,7 @@ char	*px_strdup(char *src)
 		i++;
 	dst = (char *)malloc(i);
 	if (!dst)
-		return (NULL);
+		return ((void *)0);
 	i = 0;
 	while (src[i])
 	{
@@ -72,10 +73,10 @@ char	*px_substr(char *src, int head, int len)
 	int		j;
 
 	if (!src)
-		return (NULL);	
+		return ((void *)0);
 	str = (char *)malloc(len + 1);
 	if (!str)
-		return (NULL);
+		return ((void *)0);
 	i = head;
 	j = 0;
 	while (j < len)
@@ -90,8 +91,8 @@ char	*px_substr(char *src, int head, int len)
 
 char	*px_strjoin(char *dst, char *src)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	*ret;
 
 	if (!dst)

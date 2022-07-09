@@ -3,19 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 22:52:59 by changkim          #+#    #+#             */
-/*   Updated: 2022/07/09 13:44:57 by changkim         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:19:29 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+#include "libft/libft.h"
 
 int	px_open_file(char *filename, int check)
 {
 	int	fd;
-	
+
 	if (check == IN)
 	{
 		if (access(filename, F_OK))
@@ -54,14 +59,16 @@ void	px_redirection(char *cmd, char **envp)
 		print_error_with_nl(1, "pipex: pipe error");
 	if (pid == 0)
 	{
-		close(fd[0]);
-		dup2(fd[1], STDOUT);
+		close(fd[IN]);
+		if (dup2(fd[OUT], STDOUT) == -1)
+			print_error_with_nl(1, "dup error");
 		px_execve(cmd, envp);
 	}
 	else
 	{
-		close(fd[1]);
-		dup2(fd[0], STDIN);
+		close(fd[OUT]);
+		if (dup2(fd[IN], STDIN) == -1)
+			print_error_with_nl(1, "dup error");
 	}
 	waitpid(0, NULL, WNOHANG);
 }
@@ -70,7 +77,7 @@ void	px_execve(char *cmd, char **envp)
 {
 	char	*path;
 	char	**split_cmd;
-	
+
 	split_cmd = ft_split(cmd, ' ');
 	if (access(split_cmd[0], F_OK) == 0)
 		path = split_cmd[0];
@@ -82,17 +89,19 @@ void	px_execve(char *cmd, char **envp)
 	print_error_with_nl(127, cmd);
 }
 
-int main(int argc, char * const *argv, char **envp)
+int	main(int argc, char **argv, char **envp)
 {
 	int	in_fd;
 	int	out_fd;
-	
+
 	if (argc == 5)
 	{
 		in_fd = px_open_file(argv[1], IN);
 		out_fd = px_open_file(argv[4], OUT);
-		dup2(in_fd, STDIN);
-		dup2(out_fd, STDOUT);
+		if (dup2(in_fd, STDIN) == -1)
+			print_error_with_nl(1, "dup2 error");
+		if (dup2(out_fd, STDOUT) == -1)
+			print_error_with_nl(1, "dup2 error");
 		px_redirection(argv[2], envp);
 		px_execve(argv[3], envp);
 	}
