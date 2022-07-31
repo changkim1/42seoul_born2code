@@ -6,11 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:12:32 by zzankor           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2022/07/20 18:15:06 by changkim         ###   ########.fr       */
-=======
-/*   Updated: 2022/07/15 16:37:33 by zzankor          ###   ########.fr       */
->>>>>>> cd5f050cec0468b4b05b2b744d42c989d8c0f046
+/*   Updated: 2022/07/31 15:14:34 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +41,19 @@ typedef struct	s_pivot
 long long	ps_atoi_ll(char *str);
 
 /////////////// sort_array.c ///////////////
-int	*ps_bubble_sort(int *array, int w_count);
-
-/////////////// make_array.c ///////////////
-int		*ps_make_array(int ac, char **av, int w_count, int *array);
-int		ps_count_word(int ac, char **av);
-
+void		ps_bubble_sort(int *array, int array_size);
 
 /////////////// error.c ///////////////
-void	ps_print_error(char *message);
-int		ps_check_duplicate(int *array, int w_count);
-void	ps_free_str(char **str);
+void		ps_print_error(char *message);
+void		ps_free_str(char **str);
 
 ////////////////// make_array.c //////////////////
-int		ps_check_array_size(char **av, int ac);
-int		*ps_make_array(char **av, int ac, int *array);
+int			ps_check_array_size(char **av, int ac);
+int			*ps_make_array(char **av, int ac, int *array);
 
+////////////////// check_array.c //////////////////
+void		ps_check_duplicate(int *array, int array_size);
+int			ps_check_limit(char *word);
 
 
 

@@ -6,7 +6,7 @@
 #    By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 14:23:37 by zzankor           #+#    #+#              #
-#    Updated: 2022/07/20 18:12:36 by changkim         ###   ########.fr        #
+#    Updated: 2022/07/31 15:16:22 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,10 @@ INCLUDES	= ./push_swap.h
 
 SRCS		= push_swap.c \
 			  make_array.c \
+			  sort_array.c \
+			  error.c \
+			  check_array.c \
+			  utils.c
 			  
 OBJS		= $(SRCS:.c=.o)
 
