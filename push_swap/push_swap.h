@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:12:32 by zzankor           #+#    #+#             */
-/*   Updated: 2022/07/31 15:14:34 by changkim         ###   ########.fr       */
+/*   Updated: 2022/07/31 18:12:02 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ int			*ps_make_array(char **av, int ac, int *array);
 void		ps_check_duplicate(int *array, int array_size);
 int			ps_check_limit(char *word);
 
+////////////////// make_stack.c //////////////////
+t_node	*ps_make_new_node(void);
+t_stack	*ps_get_stack(t_stack *stack_a);
+void	ps_array_to_stack(int *array, int array_size, t_stack *stack_a);  
 
 
 #endif

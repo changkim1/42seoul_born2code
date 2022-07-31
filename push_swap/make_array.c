@@ -6,12 +6,11 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:01:53 by changkim          #+#    #+#             */
-/*   Updated: 2022/07/31 15:32:42 by changkim         ###   ########.fr       */
+/*   Updated: 2022/07/31 16:58:47 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	ps_check_array_size(char **av, int ac)
 {

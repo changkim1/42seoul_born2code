@@ -6,13 +6,20 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:44:13 by zzankor           #+#    #+#             */
-/*   Updated: 2022/07/31 15:07:55 by changkim         ###   ########.fr       */
+/*   Updated: 2022/07/31 16:24:41 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_pivot	ps_make_pivot(int *array, int array_size);
+t_pivot	ps_make_pivot(int *array, int array_size)
+{
+	t_pivot	pivot;
+	
+	pivot.big = array[array_size / 3 * 2];
+	pivot.small = array[array_size / 3];
+	return (pivot);
+}
 
 void	ps_bubble_sort(int *array, int array_size)
 {

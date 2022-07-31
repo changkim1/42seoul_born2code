@@ -6,7 +6,7 @@
 #    By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 14:23:37 by zzankor           #+#    #+#              #
-#    Updated: 2022/07/31 15:16:22 by changkim         ###   ########.fr        #
+#    Updated: 2022/07/31 17:43:42 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRCS		= push_swap.c \
 			  sort_array.c \
 			  error.c \
 			  check_array.c \
-			  utils.c
+			  utils.c \
+			  make_stack.c
 			  
 OBJS		= $(SRCS:.c=.o)
 
