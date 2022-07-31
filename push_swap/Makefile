@@ -6,11 +6,11 @@
 #    By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 14:23:37 by zzankor           #+#    #+#              #
-#    Updated: 2022/07/13 11:55:01 by changkim         ###   ########.fr        #
+#    Updated: 2022/07/20 18:12:36 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= pipex
+NAME		= push_swap
 
 CC			= cc
 CFLAG		= -Wall -Wextra -Werror
@@ -20,13 +20,11 @@ RM			= rm -rf
 AR			= ar
 ARFLAGS		= crs
 
-INCLUDES	= ./pipex.h
+INCLUDES	= ./push_swap.h
 
-SRCS		= pipex.c \
-			  path.c \
-			  utils.c \
-			  error.c
-
+SRCS		= push_swap.c \
+			  make_array.c \
+			  
 OBJS		= $(SRCS:.c=.o)
 
 OBJS_FILES = $(OBJS)

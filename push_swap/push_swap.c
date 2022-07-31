@@ -3,22 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zzankor <zzankor@student.42.fr>            +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:12:25 by zzankor           #+#    #+#             */
-/*   Updated: 2022/07/07 16:05:45 by zzankor          ###   ########.fr       */
+/*   Updated: 2022/07/20 18:15:23 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int main(int ac, char **av)
 {
-	t_stack	*stack_a;
+	// t_stack	*stack_a;
 	int		*array;
 	int		array_size;
 
-	if (ac < 1)
-			
-	stack_a = (t_stack *)malloc(sizeof(t_stack));
+	if (ac < 2)
+		return (0);
+	array_size = ps_check_array_size(av, ac);
+	array = (int *)malloc(sizeof(int) * array_size);
+	if (!array)
+		exit(1);
+	array = ps_make_array(av, ac, array);
+	int i = 0;
+	while (i < array_size)
+	{
+		fprintf(stderr, "%d\n", array[i]);
+		i++;
+	}
+	// stack_a = (t_stack *)malloc(sizeof(t_stack));
 }

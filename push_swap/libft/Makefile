@@ -6,7 +6,7 @@ CFLAG		= -Wall -Wextra -Werror
 RM			= rm -rf
 
 AR			= ar
-ARFLAGS		= curs
+ARFLAGS		= crs
 
 INCLUDES	= ./libft.h
 
@@ -27,6 +27,7 @@ SRCS		= ft_atoi.c \
 			  ft_strlcpy.c \
 			  ft_strlen.c \
 			  ft_strnstr.c \
+			  ft_strcmp.c \
 			  ft_strncmp.c \
 			  ft_strrchr.c \
 			  ft_tolower.c \

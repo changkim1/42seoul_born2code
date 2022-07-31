@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 14:12:32 by zzankor           #+#    #+#             */
-/*   Updated: 2022/07/20 18:15:06 by changkim         ###   ########.fr       */
+/*   Created: 2022/07/07 21:22:11 by changkim          #+#    #+#             */
+/*   Updated: 2022/07/07 21:27:00 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-#include "libft/libft.h"
-
-typedef struct s_node
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	struct s_node	*prev;
-	int				content;
-	struct s_node	*next;
-}				t_node;
+	int	i;
 
-typedef struct s_stack
-{
-	t_node	*top;
-	t_node	*bot;
-	int		size;
-}				t_stack;
-
-
-////////////////// make_array.c //////////////////
-int		ps_check_array_size(char **av, int ac);
-int		*ps_make_array(char **av, int ac, int *array);
-
-
-
-
-#endif
+	i = 0;
+	if (!s1)
+		return (s2[0]);
+	while (s1[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
+}

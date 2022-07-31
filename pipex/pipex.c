@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 22:52:59 by changkim          #+#    #+#             */
-/*   Updated: 2022/07/09 17:19:29 by changkim         ###   ########.fr       */
+/*   Updated: 2022/07/13 11:53:00 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	px_redirection(char *cmd, char **envp)
 		if (dup2(fd[IN], STDIN) == -1)
 			print_error_with_nl(1, "dup error");
 	}
-	waitpid(0, NULL, WNOHANG);
+	waitpid(0, (void *)0, WNOHANG);
 }
 
 void	px_execve(char *cmd, char **envp)
