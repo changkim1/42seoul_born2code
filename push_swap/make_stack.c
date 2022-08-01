@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:33:50 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/01 19:24:56 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/01 21:36:41 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,40 +26,39 @@ t_node	*ps_make_new_node(void)
 	return (new_node);
 }
 
-t_stack	*ps_get_stack(t_stack *stack_a)
+t_stack	*ps_get_stack(t_stack *stack)
 {
 	t_node	*new_node;
 
 	new_node = ps_make_new_node();
-	stack_a = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack_a)
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack)
 		exit(1);
-	stack_a->size = 0;
-	stack_a->top = new_node;
-	stack_a->bot = new_node;
-	return (stack_a);
+	stack->a_size = 0;
+	stack->a_top = new_node;
+	stack->a_bot = new_node;
+	stack->b_size = 0;
+	return (stack);
 }
 
-t_stack	*ps_array_to_stack(int *array, int array_size, t_stack *stack_a)
+t_stack	*ps_array_to_stack(int *array, int array_size, t_stack *stack)
 {
 	int		i;
 	t_node	*new_node;
 
 	i = 0;
-	stack_a = ps_get_stack(stack_a);
+	stack = ps_get_stack(stack);
 	while (i < array_size)
 	{
 		new_node = ps_make_new_node();
-		printf("%d %d\n", array[0], i);
-		stack_a->bot->content = (int)array[i];
-		stack_a->bot->next = new_node;
-		new_node->prev = stack_a->bot;
-		stack_a->bot = new_node;
-		stack_a->size++;
-		printf("top = %d bot = %d\n", stack_a->top->content, stack_a->bot->prev->content);
+		stack->a_bot->content = (int)array[i];
+		stack->a_bot->next = new_node;
+		new_node->prev = stack->a_bot;
+		stack->a_bot = new_node;
+		stack->a_size++;
 		i++;
 	}
-	stack_a->bot = stack_a->bot->prev;
+	stack->a_bot = stack->a_bot->prev;
 	free(new_node);
-	return (stack_a);
+	return (stack);
 }

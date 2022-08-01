@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:12:25 by zzankor           #+#    #+#             */
-/*   Updated: 2022/08/01 19:25:02 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/01 22:23:33 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,19 @@
 
 int	main(int ac, char **av)
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack	*stack;
 	int		*array;
 	int		array_size;
 
-	stack_a = (void *)0;
-	stack_b = (void *)0;
-	stack_b = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack_b)
-		exit(1);
+	stack = (void *)0;
 	if (ac < 2)
 		return (0);
 	array_size = ps_check_array_size(av, ac);
 	array = (int *)malloc(sizeof(int) * array_size);
 	if (!array)
 		exit(1);
-	array = ps_make_array(av, ac, array);
-	stack_a = ps_array_to_stack(array, array_size, stack_a);
-	printf("size = %d\n", stack_a->size);
+	array = ps_make_array(av, ac, array, array_size);
+	stack = ps_array_to_stack(array, array_size, stack);
 	ps_bubble_sort(array, array_size);
-	ps_sort(stack_a, stack_b);
+	ps_sort(stack, array, array_size);
 }

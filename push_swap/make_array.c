@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:01:53 by changkim          #+#    #+#             */
-/*   Updated: 2022/07/31 16:58:47 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/01 22:24:15 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ps_check_array_size(char **av, int ac)
 }
 
 
-int	*ps_make_array(char **av, int ac, int *array)
+int	*ps_make_array(char **av, int ac, int *array, int array_size)
 {
 	
 	int			i;
@@ -60,5 +60,6 @@ int	*ps_make_array(char **av, int ac, int *array)
 		}
 		i++;
 	}
+	ps_check_duplicate(array, array_size);
 	return (array);
 }
