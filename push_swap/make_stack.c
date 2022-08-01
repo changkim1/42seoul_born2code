@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:33:50 by changkim          #+#    #+#             */
-/*   Updated: 2022/07/31 18:16:27 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/01 19:24:56 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_stack	*ps_get_stack(t_stack *stack_a)
 	return (stack_a);
 }
 
-void	ps_array_to_stack(int *array, int array_size, t_stack *stack_a)
+t_stack	*ps_array_to_stack(int *array, int array_size, t_stack *stack_a)
 {
 	int		i;
 	t_node	*new_node;
@@ -61,4 +61,5 @@ void	ps_array_to_stack(int *array, int array_size, t_stack *stack_a)
 	}
 	stack_a->bot = stack_a->bot->prev;
 	free(new_node);
+	return (stack_a);
 }
