@@ -6,56 +6,92 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:11:33 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/01 22:24:57 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/03 23:14:57 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// ps double check 함수에서 oper_set 의 마지막 원소 하나가 남음. 이거 하나 마지막에 처리 해줘야함.
+#include <unistd.h>
+
 void	ps_sort(t_stack *stack, int *array, int array_size)
 {
 	stack->oper_set = (char **)malloc(sizeof(char *) * 4);
 	if (!stack->oper_set)
 		exit(1);
-	if (stack->a_size > 3)
+	if (stack->a_size == 2)
+	{
+		if (stack->a_top->content > stack->a_top->next->content)
+			ps_sa(stack);
+	}
+	else if (stack->a_size == 3)
+		ps_sort_three_arg(stack->a_top, stack);
+	else if (stack->a_size > 3)
 	{
 		ps_node_to_stack_3_way(array, array_size, stack);
-	}
-	if (stack->oper_set[0])
-	{
-		write(1, stack->oper_set[0], ft_strlen(stack->oper_set[0]));
-		write(1, "\n", 1);
+		ps_sort_over_three(stack);
 	}
 }
 
-void	ps_node_to_stack_3_way(int *array, int array_size, t_stack *stack)
+void	ps_sort_three_arg(t_node *node, t_stack *stack)
 {
-	t_pivot	pivot;
-	int	i;
+	t_node	*tmp;
+	int	one;
+	int	two;
+	int	three;
 
-	i = array_size;
-	pivot = ps_make_pivot(array, array_size);
-	while (i > 0)
-	{
-		stack = ps_move_node_3_way(&pivot, stack);
-		i--;
-	}
-}
-
-t_stack	*ps_move_node_3_way(t_pivot *pivot, t_stack *stack)
-{
-	if (stack->a_top->content > pivot->big)
-	{
+	tmp = node->next;
+	one = tmp->prev->content;
+	two = tmp->content;
+	three = tmp->next->content;
+	if (one > two && two < three && one > three)
 		ps_ra(stack);
-	}
-	else if (stack->a_top->content < pivot->small)
+	else if (one > two && two > three)
 	{
-		ps_pb(stack);
-		ps_rb(stack);
+		ps_sa(stack);
+		ps_rra(stack);
 	}
-	else
+	else if (one > two && two < three && three > one)
+		ps_sa(stack);
+	else if (one < two && two > three && three < one)
+		ps_rra(stack);
+	else if (one < two && two > three && three > one)
 	{
-		ps_pb(stack);
+		ps_rra(stack);
+		ps_sa(stack);
 	}
-	return (stack);
+}
+
+void	ps_sort_over_three(t_stack *stack)
+{
+	t_loc	loc;
+
+	while (stack->a_size > 3)
+		ps_pb(stack);
+	if (stack->a_size == 2)
+	{
+		if (stack->a_top->content > stack->a_top->next->content)
+			ps_sa(stack);
+	}
+	else if (stack->a_size == 3)
+		ps_sort_three_arg(stack->a_top, stack);
+	while (stack->b_size > 0)
+	{
+		loc.tmp_a = 0;
+		loc.tmp_b = 0;
+		ps_make_real_loc(stack, &loc);
+		ps_sort_move(stack, &loc);
+	}
+	ps_sort_last(stack, &loc);
+}
+
+void	ps_sort_last(t_stack *stack, t_loc *loc)
+{
+	int	last_a;
+
+	ps_where_min_a(stack, loc);
+	last_a = loc->min_a;
+	if (last_a >= (stack->a_size + 1) / 2)
+		last_a = (stack->a_size - last_a) * (-1);
+	while (last_a != 0)
+		last_a = ps_sort_move_a(stack, last_a);
 }

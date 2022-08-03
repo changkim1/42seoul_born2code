@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 21:00:54 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/01 22:10:45 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/03 23:14:39 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ps_pa(t_stack *stack)
 	tmp = stack->b_top;
 	if (stack->b_size >= 2)
 	{
-		stack->b_top = stack->b_top->next;
+		stack->b_top = tmp->next;
 		stack->b_top->prev = NULL;
 	}	
 	if (stack->a_size == 0)
@@ -37,8 +37,7 @@ void	ps_pa(t_stack *stack)
 		stack->a_top = tmp;
 	}
 	ps_resize_p(stack, 'a');
-	stack->oper_set = ps_put_oper(stack, "pa");
-	ps_check_double(stack, "pa", "pb", "pp");
+	write(1, "pa\n", 3);
 }
 
 void	ps_pb(t_stack *stack)
@@ -66,9 +65,9 @@ void	ps_pb(t_stack *stack)
 		stack->b_top = tmp;
 	}
 	ps_resize_p(stack, 'b');
-	stack->oper_set = ps_put_oper(stack, "pb");
-	ps_check_double(stack, "pb", "pa", "pp");
+	write(1, "pb\n", 3);
 }
+
 void	ps_resize_p(t_stack *stack, char checker)
 {
 	if (checker == 'a')

@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 21:25:32 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/01 22:21:13 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/03 23:14:29 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	ps_ra(t_stack *stack)
 	tmp->prev = stack->a_bot;
 	stack->a_bot = tmp;
 	stack->a_bot->next = NULL;
-	stack->oper_set = ps_put_oper(stack, "ra");
-	ps_check_double(stack, "ra", "rb", "rr");
+	write(1, "ra\n", 3);
 }
 
 void	ps_rb(t_stack *stack)
@@ -42,6 +41,5 @@ void	ps_rb(t_stack *stack)
 	tmp->prev = stack->b_bot;
 	stack->b_bot = tmp;
 	stack->b_bot->next = NULL;
-	stack->oper_set = ps_put_oper(stack, "rb");
-	ps_check_double(stack, "rb", "ra", "rr");
+	write(1, "rb\n", 3);
 }

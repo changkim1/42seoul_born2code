@@ -6,7 +6,7 @@
 #    By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 14:23:37 by zzankor           #+#    #+#              #
-#    Updated: 2022/08/01 21:31:58 by changkim         ###   ########.fr        #
+#    Updated: 2022/08/03 23:09:23 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,13 +27,17 @@ SRCS		= push_swap.c \
 			  sort_array.c \
 			  error.c \
 			  check_array.c \
-			  utils.c \
 			  make_stack.c \
 			  sort.c \
-			  oper_utils.c \
+			  sort_utils.c \
+			  sort_move.c \
 			  oper_s.c \
 			  oper_p.c \
-			  oper_r.c
+			  oper_r.c \
+			  oper_rr.c \
+			  real_loc.c \
+			  real_loc_utils.c \
+			  get_min_max.c
 			  
 OBJS		= $(SRCS:.c=.o)
 

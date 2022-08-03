@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   oper_s.c                                           :+:      :+:    :+:   */
+/*   oper_rr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 18:15:53 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/03 23:14:10 by changkim         ###   ########.fr       */
+/*   Created: 2022/08/02 23:32:58 by changkim          #+#    #+#             */
+/*   Updated: 2022/08/03 23:14:19 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ps_sa(t_stack *stack)
+void	ps_rra(t_stack *stack)
 {
-	int	tmp;
+	t_node	*tmp;
 
 	if (stack->a_size < 2)
 		return ;
-	else
-	{
-		tmp = stack->a_top->content;
-		stack->a_top->content = stack->a_top->next->content;
-		stack->a_top->next->content = tmp;
-	}
-	printf("\n");
-	write(1, "sa\n", 3);
+	tmp = stack->a_bot;
+	stack->a_bot = stack->a_bot->prev;
+	stack->a_bot->next = NULL;
+	stack->a_top->prev = tmp;
+	tmp->next = stack->a_top;
+	stack->a_top = tmp;
+	stack->a_top->prev = NULL;
+	write(1, "rra\n", 4);
 }
 
-void	ps_sb(t_stack *stack)
+void	ps_rrb(t_stack *stack)
 {
-	int	tmp;
+	t_node	*tmp;
 
 	if (stack->b_size < 2)
 		return ;
-	else
-	{
-		tmp = stack->b_top->content;
-		stack->b_top->content = stack->b_top->next->content;
-		stack->b_top->next->content = tmp;
-	}
-	write(1, "sb\n", 3);
-	printf("\n");
+	tmp = stack->b_bot;
+	stack->b_bot = stack->b_bot->prev;
+	stack->b_bot->next = NULL;
+	stack->b_top->prev = tmp;
+	tmp->next = stack->b_top;
+	tmp = stack->b_top;
+	stack->b_top->prev = NULL;
+	write(1, "rrb\n", 4);
 }
