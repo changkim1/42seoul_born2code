@@ -6,11 +6,12 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 23:32:58 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/04 23:15:57 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:24:02 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
 
 void	ps_rra(t_stack *stack)
 {

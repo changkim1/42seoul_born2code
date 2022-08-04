@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:12:25 by zzankor           #+#    #+#             */
-/*   Updated: 2022/08/04 23:13:38 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:14:10 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@ int	main(int ac, char **av)
 	stack = ps_array_to_stack(array, array_size, stack);
 	ps_bubble_sort(array, array_size);
 	ps_sort(stack, array, array_size);
+	free(array);
+	ps_free_stack(stack);
 }

@@ -6,11 +6,12 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:20:21 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/04 23:14:44 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:24:28 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
 
 int	ps_what_min_max(t_node *node, char *min_or_max)
 {

@@ -6,23 +6,25 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 16:05:55 by zzankor           #+#    #+#             */
-/*   Updated: 2022/08/04 23:14:07 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:23:38 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
+#include <unistd.h>
 
-void	ps_free_str(char **str)
+void	ps_free_stack(t_stack *stack)
 {
-	int	i;
+	t_node	*tmp;
 
-	i = 0;
-	while (str[i])
+	tmp = stack->a_top;
+	while (tmp)
 	{
-		free(str[i]);
-		i++;
+		free(tmp);
+		tmp = tmp->next;
 	}
-	free(str);
+	free(stack);
 }
 
 void	ps_print_error(char *message)

@@ -6,11 +6,13 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 14:49:16 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/04 23:13:55 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:22:11 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
+
 
 int	ps_check_limit(char *word)
 {
@@ -57,7 +59,7 @@ long long	ps_atoi_ll(char *str)
 	i = len - 1;
 	while (i >= 0)
 	{
-		if (str[i] == '-')
+		if (str[0] == '-' && ps_str_check_from_n(str, 1) > 0)
 		{
 			tmp *= -1;
 			return (tmp);
@@ -69,4 +71,20 @@ long long	ps_atoi_ll(char *str)
 		i--;
 	}
 	return (tmp);
+}
+
+int	ps_str_check_from_n(char *str, int n)
+{
+	int	i;
+
+	i = n;
+	while (i < (int)ft_strlen(str))
+	{
+		if (!ft_isdigit(str[i]))
+			return (-1);
+		i++;
+	}
+	if (i == n)
+		return (-1);
+	return (1);
 }

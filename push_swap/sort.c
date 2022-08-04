@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:11:33 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/04 23:11:49 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:41:57 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	ps_sort(t_stack *stack, int *array, int array_size)
 void	ps_sort_three_arg(t_node *node, t_stack *stack)
 {
 	t_node	*tmp;
-	int	one;
-	int	two;
-	int	three;
+	int		one;
+	int		two;
+	int		three;
 
 	tmp = node->next;
 	one = tmp->prev->content;

@@ -6,11 +6,12 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:02:06 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/04 22:58:11 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/05 00:24:18 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
 
 void	ps_make_real_loc(t_stack *stack, t_loc *loc)
 {
@@ -20,13 +21,13 @@ void	ps_make_real_loc(t_stack *stack, t_loc *loc)
 	int		i;
 
 	b_node = stack->b_top;
-	i = 0;
+	i = -1;
 	loc->real_a = 0;
 	loc->real_b = 0;
-	while (i < stack->b_size)
+	while (++i < stack->b_size)
 	{
 		b_num = b_node->content;
-		ps_make_a_idx(stack, loc, b_num); // tmp_a 완성
+		ps_make_a_idx(stack, loc, b_num);
 		if (i >= (stack->b_size + 1) / 2)
 			loc->tmp_b = (stack->b_size - i) * (-1);
 		else
@@ -38,7 +39,6 @@ void	ps_make_real_loc(t_stack *stack, t_loc *loc)
 			loc->real_b = loc->tmp_b;
 		}
 		b_node = b_node->next;
-		i++;
 	}
 }
 
@@ -49,7 +49,6 @@ void	ps_make_a_idx(t_stack *stack, t_loc *loc, int b_num)
 
 	min_a = 0;
 	max_a = 0;
-
 	if (stack->a_size <= 1)
 	{
 		min_a = stack->a_top->content;
@@ -91,7 +90,7 @@ void	ps_make_a_idx_mid(t_stack *stack, t_loc *loc, int b_num)
 {
 	t_node	*node;
 	int		tmp_loc;
-	
+
 	tmp_loc = 1;
 	node = stack->a_top;
 	while (node->next != 0)

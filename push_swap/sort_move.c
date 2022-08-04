@@ -6,12 +6,12 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:51:45 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/04 22:46:08 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:19:54 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <unistd.h>
+
 void	ps_sort_move(t_stack *stack, t_loc *loc)
 {
 	while (1)
