@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_array.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 20:01:53 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/01 22:24:15 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:15:06 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,8 @@ int	ps_check_array_size(char **av, int ac)
 	return (idx);
 }
 
-
 int	*ps_make_array(char **av, int ac, int *array, int array_size)
 {
-	
 	int			i;
 	int			j;
 	int			idx;

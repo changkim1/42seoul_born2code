@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 23:04:37 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/03 21:44:16 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 22:13:14 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	ps_node_to_stack_3_way(int *array, int array_size, t_stack *stack)
 	t_pivot	pivot;
 	int	i;
 
-	i = array_size;
+	i = 0;
 	pivot = ps_make_pivot(array, array_size);
-	while (i > 0)
+	while (i < array_size)
 	{
 		stack = ps_move_node_3_way(&pivot, stack);
-		i--;
+		i++;
 	}
 }
 

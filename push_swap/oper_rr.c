@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 23:32:58 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/04 19:59:25 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:15:57 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ps_rrb(t_stack *stack)
 	stack->b_bot->next = NULL;
 	stack->b_top->prev = tmp;
 	tmp->next = stack->b_top;
-	tmp = stack->b_top;
+	stack->b_top = tmp;
 	stack->b_top->prev = NULL;
 	write(1, "rrb\n", 4);
 }
@@ -62,7 +62,7 @@ void	ps_rrr(t_stack *stack)
 	stack->b_bot->next = NULL;
 	stack->b_top->prev = tmp;
 	tmp->next = stack->b_top;
-	tmp = stack->b_top;
+	stack->b_top = tmp;
 	stack->b_top->prev = NULL;
 	write(1, "rrr\n", 4);
 }

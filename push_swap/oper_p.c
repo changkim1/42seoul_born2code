@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 21:00:54 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/04 19:42:27 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:15:49 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ps_pa(t_stack *stack)
 	{
 		stack->b_top = tmp->next;
 		stack->b_top->prev = NULL;
-	}	
+	}
 	if (stack->a_size == 0)
 	{
 		tmp->next = NULL;
@@ -49,7 +49,7 @@ void	ps_pb(t_stack *stack)
 	tmp = stack->a_top;
 	if (stack->a_size >= 2)
 	{
-		stack->a_top = stack->a_top->next;
+		stack->a_top = tmp->next;
 		stack->a_top->prev = NULL;
 	}	
 	if (stack->b_size == 0)

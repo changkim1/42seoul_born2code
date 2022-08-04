@@ -1,12 +1,12 @@
-	/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   real_loc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:02:06 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/03 19:57:28 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 22:58:11 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ps_make_real_loc(t_stack *stack, t_loc *loc)
 		b_num = b_node->content;
 		ps_make_a_idx(stack, loc, b_num); // tmp_a 완성
 		if (i >= (stack->b_size + 1) / 2)
-			loc->tmp_b = i * (-1);
+			loc->tmp_b = (stack->b_size - i) * (-1);
 		else
 			loc->tmp_b = i;
 		tmp = ps_loc_cpy(loc);
@@ -78,13 +78,12 @@ void	ps_make_a_idx_min_max(t_stack *stack, t_loc *loc, char *max_or_min)
 		return ;
 	}
 	ps_where_min_a(stack, loc);
+	ps_where_max_a(stack, loc);
 	tmp_loc = loc->min_a;
 	if (ft_strcmp(max_or_min, "max") == 0)
-		tmp_loc++;
+		tmp_loc = loc->max_a + 1;
 	if (tmp_loc >= (stack->a_size + 1) / 2)
-	{
 		tmp_loc = (stack->a_size - tmp_loc) * (-1);
-	}
 	loc->tmp_a = tmp_loc;
 }
 

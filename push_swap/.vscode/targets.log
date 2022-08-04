@@ -1,0 +1,635 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i386-apple-darwin11.3.0
+ 
+
+# Make data base, printed on Thu Aug  4 19:44:37 2022
+
+# Variables
+
+# environment
+VSCODE_GIT_ASKPASS_MAIN = /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass-main.js
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# makefile (from `Makefile', line 23)
+INCLUDES = ./push_swap.h
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /goinfre/changkim/42seoul_born2code/push_swap
+# makefile
+SHELL = /bin/sh
+# makefile (from `Makefile', line 18)
+RM = rm -rf
+# environment
+VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePackId":"738ac08552cca045871a73764b8c446f.ko","_translationsConfigFile":"/Users/changkim/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/tcf.json","_cacheRoot":"/Users/changkim/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko","_resolvedLanguagePackCoreLocation":"/Users/changkim/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/Users/changkim/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/corrupted.info","_languagePackSupport":true}
+ 
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# makefile (from `Makefile', line 42)
+OBJS = $(SRCS:.c=.o)
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000clc80034v2/T/vscode-ipc-d7e6c5c6-2463-47cd-a1f6-514f3459ae61.sock
+# environment
+VSCODE_CWD = /Users/changkim/goinfre/42seoul_born2code/push_swap
+# environment
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+# makefile (from `Makefile', line 21)
+ARFLAGS = crs
+# makefile (from `Makefile', line 20)
+AR = ar
+# environment
+VSCODE_LOG_STACK = false
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.tS5vlXy5uU/Listeners
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /Users/changkim/goinfre/42seoul_born2code/push_swap
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /Users/changkim
+# default
+MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
+# environment
+VSCODE_CODE_CACHE_PATH = /Users/changkim/Library/Application Support/Code/CachedData/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+# environment
+LOGNAME = changkim
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# makefile (from `Makefile', line 16)
+CFLAG = -Wall -Wextra -Werror
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 0
+# environment
+XPC_FLAGS = 0x0
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# makefile (from `Makefile', line 25)
+SRCS = push_swap.c make_array.c sort_array.c error.c check_array.c make_stack.c sort.c sort_utils.c sort_move.c oper_s.c oper_p.c oper_r.c oper_rr.c real_loc.c real_loc_utils.c get_min_max.c
+# environment
+SHLVL = 2
+# makefile (from `Makefile', line 15)
+CC = cc
+# default
+MAKE_VERSION := 3.81
+# environment
+USER = changkim
+# makefile
+.DEFAULT_GOAL := all
+# makefile (from `Makefile', line 13)
+NAME = push_swap
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := /Applications/Xcode.app/Contents/Developer/usr/bin/make
+# environment
+VSCODE_GIT_ASKPASS_EXTRA_ARGS = --ms-enable-electron-run-as-node
+# environment
+TERM_PROGRAM = vscode
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n000clc80034v2/T/
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /Users/changkim/Library/Application Support/Code/1.67.2-main.sock
+# environment
+VSCODE_GIT_ASKPASS_NODE = /Applications/Visual Studio Code.app/Contents/MacOS/Electron
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+TERM_PROGRAM_VERSION = 1.67.2
+# environment
+MAIL = zzankor@student.42.fr
+# environment
+XPC_SERVICE_NAME = com.microsoft.VSCode.2200.014196A2-0C44-44A3-8DF9-1EEB0347E978
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+__CF_USER_TEXT_ENCODING = 0x19362:0x3:0x33
+# environment
+GIT_ASKPASS = /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/git/dist/askpass.sh
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# makefile (from `Makefile', line 44)
+OBJS_FILES = $(OBJS)
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# default
+.INCLUDE_DIRS = /usr/local/include
+# environment
+VSCODE_GIT_IPC_HANDLE = /var/folders/zz/zyxvpxvq6csfxvn_n000clc80034v2/T/vscode-git-3b387d541e.sock
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_PID = 97127
+# variable set hash-table stats:
+# Load=80/1024=8%, Rehash=0, Collisions=5/109=5%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 16777220, inode 1152921500313094739): 48 files, no impossibilities.
+
+# 48 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+%.o: %.c
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+sort_array.o: sort_array.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `sort_array'
+ 
+#  Last modified 2022-08-04 19:44:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+# Not a target:
+push_swap.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:42:37
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+real_loc.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:42:38
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+all: push_swap
+#  Phony target (prerequisite of .PHONY).
+#  Command-line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.PHONY: all clean fclean re bonus
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+make_stack.o: make_stack.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `make_stack'
+#  Last modified 2022-08-04 19:44:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+# Not a target:
+oper_s.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:42:32
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+oper_p.o: oper_p.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `oper_p'
+#  Last modified 2022-08-04 19:44:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+# Not a target:
+get_min_max.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:41:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+oper_rr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:42:33
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:44:02
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+sort_move.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:41:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+sort_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:41:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+sort.o: sort.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `sort'
+#  Last modified 2022-08-04 19:44:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+real_loc_utils.o: real_loc_utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `real_loc_utils'
+#  Last modified 2022-08-04 19:44:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+error.o: error.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `error'
+#  Last modified 2022-08-04 19:44:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+ 
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+make_array.o: make_array.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `make_array'
+#  Last modified 2022-08-04 19:44:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+# Not a target:
+sort_array.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:41:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+bonus:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 60):
+	$(RM) $(NAME)
+	$(RM) libft.a
+	make fclean -C libft
+	
+
+oper_r.o: oper_r.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `oper_r'
+#  Last modified 2022-08-04 19:44:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+# Not a target:
+make_stack.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:41:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+oper_p.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:42:27
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+check_array.o: check_array.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `check_array'
+#  Last modified 2022-08-04 19:44:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+sort.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:42:42
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 56):
+	$(RM) $(OBJS)
+	make clean -C libft
+	
+
+push_swap.o: push_swap.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `push_swap'
+#  Last modified 2022-08-04 19:44:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+push_swap: push_swap.o make_array.o sort_array.o error.o check_array.o make_stack.o sort.o sort_utils.o sort_move.o oper_s.o oper_p.o oper_r.o oper_rr.o real_loc.o real_loc_utils.o get_min_max.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-08-04 19:44:06
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 52):
+	$(MAKE) -C ./libft
+	$(CC) $(CLFAG) $(OBJS_FILES) -L./libft -lft -o $(NAME)
+	
+
+# Not a target:
+real_loc_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:41:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+error.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:41:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+real_loc.o: real_loc.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `real_loc'
+#  Last modified 2022-08-04 19:44:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+ 
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+# Not a target:
+make_array.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:41:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+oper_r.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:42:28
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+oper_s.o: oper_s.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `oper_s'
+#  Last modified 2022-08-04 19:44:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+get_min_max.o: get_min_max.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `get_min_max'
+#  Last modified 2022-08-04 19:44:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+oper_rr.o: oper_rr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `oper_rr'
+#  Last modified 2022-08-04 19:44:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+sort_move.o: sort_move.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `sort_move'
+#  Last modified 2022-08-04 19:44:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+sort_utils.o: sort_utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `sort_utils'
+#  Last modified 2022-08-04 19:44:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 49):
+	$(CC) $(CFLAG) -c $<
+	
+
+# Not a target:
+check_array.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-04 19:41:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# files hash-table stats:
+# Load=42/1024=4%, Rehash=0, Collisions=0/128=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Thu Aug  4 19:44:37 2022
+
+ 

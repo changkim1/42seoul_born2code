@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_min_max.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:20:21 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/03 23:06:07 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:14:44 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,8 @@ int	ps_what_min_max(t_node *node, char *min_or_max)
 	int		res;
 
 	res = node->content;
-
 	if (ft_strcmp(min_or_max, "min") == 0)
-	{		
-	
+	{
 		while (node != 0)
 		{
 			if (res > node->content)
@@ -59,27 +57,25 @@ void	ps_where_min_a(t_stack *stack, t_loc *loc)
 		node_a = node_a->next;
 		i++;
 	}
-
 }
 
-void	ps_where_min_b(t_stack *stack, t_loc *loc)
+void	ps_where_max_a(t_stack *stack, t_loc *loc)
 {
 	int		i;
-	int		min_b;
-	t_node	*node_b;
+	int		max_a;
+	t_node	*node_a;
 
 	i = 0;
-	node_b = stack->a_top;
-	min_b = ps_what_min_max(node_b, "min");
+	node_a = stack->a_top;
+	max_a = ps_what_min_max(node_a, "max");
 	while (i < stack->a_size)
 	{
-		if (min_b == node_b->content)
+		if (max_a == node_a->content)
 		{
-			loc->min_b = i;
-			return ;
+			loc->max_a = i;
+			break ;
 		}
-		node_b = node_b->next;
+		node_a = node_a->next;
 		i++;
 	}
 }
-

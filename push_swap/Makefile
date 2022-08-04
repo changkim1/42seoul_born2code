@@ -6,7 +6,7 @@
 #    By: changkim <changkim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 14:23:37 by zzankor           #+#    #+#              #
-#    Updated: 2022/08/04 19:44:02 by changkim         ###   ########.fr        #
+#    Updated: 2022/08/04 23:10:25 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS		= push_swap.c \
 			  check_array.c \
 			  make_stack.c \
 			  sort.c \
+			  sort_over_3.c \
 			  sort_utils.c \
 			  sort_move.c \
 			  oper_s.c \

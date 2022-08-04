@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:12:32 by zzankor           #+#    #+#             */
-/*   Updated: 2022/08/04 20:42:16 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 23:09:58 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,9 @@ t_stack	*ps_array_to_stack(int *array, int array_size, t_stack *stack);
 ////////////////// sort.c //////////////////
 void	ps_sort(t_stack *stack, int *array, int array_size);
 void	ps_sort_three_arg(t_node *node, t_stack *stack);
+void	ps_sort_five_arg(t_stack *stack, int *array);
+
+////////////////// sort_over_3.c //////////////////
 void	ps_sort_over_three(t_stack *stack);
 void	ps_sort_last(t_stack *stack, t_loc *loc);
 
@@ -129,9 +132,7 @@ t_loc	ps_loc_cpy(t_loc *loc);
 ////////////////// get_min_max.c //////////////////
 int		ps_what_min_max(t_node *node, char *min_or_max);
 void	ps_where_min_a(t_stack *stack, t_loc *loc);
-void	ps_where_min_b(t_stack *stack, t_loc *loc);
-
-
+void	ps_where_max_a(t_stack *stack, t_loc *loc);
 
 
 #endif
