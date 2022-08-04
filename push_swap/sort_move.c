@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_move.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:51:45 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/03 20:30:05 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:42:41 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,63 @@
 
 void	ps_sort_move(t_stack *stack, t_loc *loc)
 {
-	int	a_idx;
-	int	b_idx;
-
-	a_idx = loc->real_a;
-	b_idx = loc->real_b;
 	while (1)
 	{
-		a_idx = ps_sort_move_a(stack, a_idx);
-		b_idx = ps_sort_move_b(stack, b_idx);
-		if (a_idx == 0 && b_idx == 0)
+		ps_sort_move_same(stack, loc);
+		ps_sort_move_a(stack, loc);
+		ps_sort_move_b(stack, loc);
+		if (loc->real_a == 0 && loc->real_b == 0)
 			break ;
 	}
 	ps_pa(stack);
 }
 
-int	ps_sort_move_a(t_stack *stack, int idx)
+void	ps_sort_move_a(t_stack *stack, t_loc *loc)
 {
-	if (idx < 0)
+	if (loc->real_a < 0)
 	{
 		ps_rra(stack);
-		idx++;
+		loc->real_a++;
 	}
-	else if (idx > 0)
+	else if (loc->real_a > 0)
 	{
 		ps_ra(stack);
-		idx--;
+		loc->real_a--;
 	}
-	return (idx);
+	else
+		return ;
 }
 
-int	ps_sort_move_b(t_stack *stack, int idx)
+void	ps_sort_move_b(t_stack *stack, t_loc *loc)
 {
-	if (idx < 0)
+	if (loc->real_b < 0)
 	{
 		ps_rrb(stack);
-		idx++;
+		loc->real_b++;
 	}
-	else if (idx > 0)
+	else if (loc->real_b > 0)
 	{
 		ps_rb(stack);
-		idx--;
+		loc->real_b--;
 	}
-	return (idx);
+	else
+		return ;
 }
 
+void	ps_sort_move_same(t_stack *stack, t_loc *loc)
+{
+	if (loc->real_a < 0 && loc->real_b < 0)
+	{
+		ps_rrr(stack);
+		loc->real_a++;
+		loc->real_b++;
+	}
+	else if (loc->real_a > 0 && loc->real_b > 0)
+	{
+		ps_rr(stack);
+		loc->real_a--;
+		loc->real_b--;
+	}
+	else
+		return ;
+}

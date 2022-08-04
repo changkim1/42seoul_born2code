@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: changkim <changkim@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 14:23:37 by zzankor           #+#    #+#              #
-#    Updated: 2022/08/03 23:09:23 by changkim         ###   ########.fr        #
+#    Updated: 2022/08/04 19:44:02 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

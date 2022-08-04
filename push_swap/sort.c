@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:11:33 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/03 23:14:57 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:45:58 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 void	ps_sort(t_stack *stack, int *array, int array_size)
 {
-	stack->oper_set = (char **)malloc(sizeof(char *) * 4);
-	if (!stack->oper_set)
-		exit(1);
 	if (stack->a_size == 2)
 	{
 		if (stack->a_top->content > stack->a_top->next->content)
@@ -92,6 +89,7 @@ void	ps_sort_last(t_stack *stack, t_loc *loc)
 	last_a = loc->min_a;
 	if (last_a >= (stack->a_size + 1) / 2)
 		last_a = (stack->a_size - last_a) * (-1);
-	while (last_a != 0)
-		last_a = ps_sort_move_a(stack, last_a);
+	loc->real_a = last_a;
+	while (loc->real_a != 0)
+		ps_sort_move_a(stack, loc);
 }

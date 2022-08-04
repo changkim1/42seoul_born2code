@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   make_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 16:33:50 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/01 21:36:41 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:48:25 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ t_stack	*ps_array_to_stack(int *array, int array_size, t_stack *stack)
 		i++;
 	}
 	stack->a_bot = stack->a_bot->prev;
+	stack->a_bot->next = NULL;
 	free(new_node);
 	return (stack);
 }

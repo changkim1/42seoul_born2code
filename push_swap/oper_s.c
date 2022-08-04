@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   oper_s.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 18:15:53 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/03 23:14:10 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:50:01 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ps_sa(t_stack *stack)
 		stack->a_top->content = stack->a_top->next->content;
 		stack->a_top->next->content = tmp;
 	}
-	printf("\n");
 	write(1, "sa\n", 3);
 }
 
@@ -41,5 +40,4 @@ void	ps_sb(t_stack *stack)
 		stack->b_top->next->content = tmp;
 	}
 	write(1, "sb\n", 3);
-	printf("\n");
 }

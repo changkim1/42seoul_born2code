@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:12:32 by zzankor           #+#    #+#             */
-/*   Updated: 2022/08/03 23:09:12 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/04 20:42:16 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,9 @@ t_stack	*ps_move_node_3_way(t_pivot *pivot, t_stack *stack);
 
 ////////////////// sort_move.c //////////////////
 void	ps_sort_move(t_stack *stack, t_loc *loc);
-int	ps_sort_move_a(t_stack *stack, int idx);
-int	ps_sort_move_b(t_stack *stack, int idx);
+void	ps_sort_move_a(t_stack *stack, t_loc *loc);
+void	ps_sort_move_b(t_stack *stack, t_loc *loc);
+void	ps_sort_move_same(t_stack *stack, t_loc *loc);
 
 ////////////////// oper_utils.c //////////////////
 char	**ps_put_oper(t_stack *stack, char *oper);
@@ -109,10 +110,12 @@ void	ps_resize_p(t_stack *stack, char checker);
 ////////////////// oper_r.c //////////////////
 void	ps_ra(t_stack *stack);
 void	ps_rb(t_stack *stack);
+void	ps_rr(t_stack *stack);
 
 ////////////////// oper_rr.c //////////////////
 void	ps_rra(t_stack *stack);
 void	ps_rrb(t_stack *stack);
+void	ps_rrr(t_stack *stack);
 
 ////////////////// rea_loc.c //////////////////
 void	ps_make_real_loc(t_stack *stack, t_loc *loc);
