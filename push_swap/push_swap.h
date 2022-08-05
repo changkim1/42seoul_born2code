@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:12:32 by zzankor           #+#    #+#             */
-/*   Updated: 2022/08/05 00:21:03 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/05 22:23:32 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int			*ps_make_array(char **av, int ac, int *array, int array_size);
 void		ps_check_duplicate(int *array, int array_size);
 int			ps_check_limit(char *word);
 long long	ps_atoi_ll(char *str);
-int	ps_str_check_from_n(char *str, int n);
+int			ps_str_check_from_n(char *str, int n);
 
 ////////////////// make_stack.c //////////////////
 t_node		*ps_make_new_node(void);

@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   check_array.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: changkim <changkim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 14:49:16 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/05 00:22:11 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/05 22:23:22 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
-
 
 int	ps_check_limit(char *word)
 {
