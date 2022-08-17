@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 14:49:16 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/05 22:23:22 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/17 23:57:07 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ long long	ps_atoi_ll(char *str)
 	i = len - 1;
 	while (i >= 0)
 	{
-		if (str[0] == '-' && ps_str_check_from_n(str, 1) > 0)
+		if (str[i] == '-' && ps_str_check_from_n(str, 1) > 0)
 		{
 			tmp *= -1;
 			return (tmp);
