@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:39:43 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/26 00:11:24 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:45:50 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ph_finish_check(t_set *set)
 
 	while (set->is_finish == 0)
 	{
-		if (set->must_eat_num != 0 && set->eat_finish_count == set->must_eat_num)
+		if (set->must_eat_num != 0 && set->eat_finish_count == set->philo_num)
 		{
 			set->is_finish = 1;
 			break ;

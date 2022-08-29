@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 22:51:34 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/26 00:19:13 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:42:42 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	*ph_play_ready(void *philo_idx)
 
 	philo = (t_philo *)philo_idx;
 	set = philo->set;
-	if (philo->id % 2 == 0)
+	if (philo->id % 2)
 		usleep(1000);
 	while (set->is_finish == 0)
 	{
@@ -63,7 +63,7 @@ void	*ph_play_ready(void *philo_idx)
 			break ;
 		}
 		ph_print(set, philo->id, "is sleeping");
-		ph_time_warp(set, set->time_to_sleep);
+		ph_time_warp(set, (long long)set->time_to_sleep);
 		ph_print(set, philo->id, "is thinking");
 	}
 	return (0);
@@ -77,7 +77,8 @@ int	ph_play_start(t_set *set)
 	while (i < set->philo_num)
 	{
 		set->philo[i].prev_eat_time = ph_get_time();
-		pthread_create(&(set->philo[i].thr_id), NULL, ph_play_ready, &(set->philo[i]));
+		if (pthread_create(&(set->philo[i].thr_id), NULL, ph_play_ready, &(set->philo[i])))
+			return (-1);
 		i++;
 	}
 	ph_finish_check(set);
@@ -87,5 +88,6 @@ int	ph_play_start(t_set *set)
 		pthread_join(set->philo[i].thr_id, NULL);
 		i++;
 	}
-	
+	ph_free_all(set);
+	return (0);
 }

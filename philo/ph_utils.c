@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:26:53 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/26 00:13:15 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:42:03 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,25 +35,23 @@ int	ph_atoi(char *str)
 {
 	int	i;
 	int	num;
-	int	minus;
 
 	num = 0;
-	minus = 1;
 	i = 0;
 	while (ph_isspace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			minus = -1;
+			ph_error("ERROR : TIME IS MINUS");
 		i++;
 	}
 	while (str[i])
 	{
-		num += (num * 10) + (str[i] - '0');
+		num = (num * 10) + (str[i] - '0');
 		i++;
 	}
-	return (num * minus);
+	return (num);
 }
 
 int	ph_error(char *message)
