@@ -6,28 +6,28 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:35:05 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/29 14:42:49 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/30 19:32:23 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ph_philo_init(t_set *set)
+int	ph_philo_init(t_set *set, t_philo **philo)
 {
 	int	i;
 
 	i = 0;
-	set->philo = malloc(sizeof(t_philo) * set->philo_num);
-	if (!(set->philo))
+	*philo = malloc(sizeof(t_philo) * set->philo_num);
+	if (!(*philo))
 		return (-1);
 	while (i < set->philo_num)
 	{
-		set->philo[i].id = i;
-		set->philo[i].l_fork = i;
-		set->philo[i].r_fork = (i + 1) % set->philo_num;
-		set->philo[i].eat_count = 0;
-		set->philo[i].set = set;
-		set->philo[i].prev_eat_time = 0;
+		(*philo)[i].id = i;
+		(*philo)[i].l_fork = i;
+		(*philo)[i].r_fork = (i + 1) % set->philo_num;
+		(*philo)[i].eat_count = 0;
+		(*philo)[i].set = set;
+		(*philo)[i].prev_eat_time = 0;
 		i++;
 	}
 	return (0);
@@ -39,6 +39,8 @@ int	ph_mut_init(t_set *set)
 
 	i = 0;
 	if (pthread_mutex_init(&(set->print), NULL))
+		return (-1);
+	if (pthread_mutex_init(&(set->multi_use), NULL))
 		return (-1);
 	set->fork = malloc(sizeof(pthread_mutex_t) * set->philo_num);
 	if (!(set->fork))
@@ -70,8 +72,6 @@ int	ph_set_init(t_set *set, int ac, char **av)
 			return (ph_error("ERROR : MUST EAT SET ERROR"));
 	}
 	if (ph_mut_init(set))
-		return (-1);
-	if (ph_philo_init(set))
 		return (-1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/29 14:01:46 by changkim          #+#    #+#              #
-#    Updated: 2022/08/29 14:03:23 by changkim         ###   ########.fr        #
+#    Updated: 2022/08/30 18:04:06 by changkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ NAME		= philo
 
 CC			= cc
 CFLAG		= -Wall -Wextra -Werror
+
+SANFLAG		= -fsanitize=thread -g
 
 RM			= rm -rf
 
@@ -36,10 +38,10 @@ OBJS_FILES = $(OBJS)
 all : $(NAME)
 
 %.o : %.c
-		$(CC) $(CFLAG) -c $<
+		$(CC) $(CFLAG) $(SANFLAG) -c $<
 
 $(NAME) : $(OBJS_FILES)
-		$(CC) $(CLFAG) $(OBJS_FILES) -o $(NAME) -lpthread
+		$(CC) $(CLFAG) $(SANFLAG) $(OBJS_FILES) -o $(NAME) -lpthread
 
 clean :
 		$(RM) $(OBJS)

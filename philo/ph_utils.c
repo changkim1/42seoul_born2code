@@ -6,7 +6,7 @@
 /*   By: changkim <changkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/25 17:26:53 by changkim          #+#    #+#             */
-/*   Updated: 2022/08/29 14:42:03 by changkim         ###   ########.fr       */
+/*   Updated: 2022/08/30 18:46:32 by changkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ int	ph_isspace(char c)
 	return ((c >= 9 && c <= 13) || c == 32);
 }
 
+int	ph_isdigit(char c)
+{
+	return (c >= '0' && c <= '9');
+}
+
 int	ph_atoi(char *str)
 {
 	int	i;
@@ -43,11 +48,13 @@ int	ph_atoi(char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			ph_error("ERROR : TIME IS MINUS");
+			return (ph_error("ERROR : ARG IS MINUS"));
 		i++;
 	}
 	while (str[i])
 	{
+		if (!ph_isdigit(str[i]))
+			return (ph_error("ERROR : ARR IS NOT NUM"));
 		num = (num * 10) + (str[i] - '0');
 		i++;
 	}
