@@ -1,0 +1,19 @@
+{
+	"files.associations": {
+		"pipex.h": "c",
+		"*.tcc": "c",
+		"cstdio": "c",
+		"pthreadtypes.h": "c",
+		"set": "c",
+		"random": "c",
+		"fstream": "c",
+		"functional": "c",
+		"istream": "c",
+		"limits": "c",
+		"ostream": "c",
+		"sstream": "c",
+		"streambuf": "c",
+		"tuple": "c",
+		"iostream": "cpp"
+	}
+}
